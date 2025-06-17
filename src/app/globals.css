@@ -96,7 +96,7 @@
   }
 
   p {
-    @apply text-base leading-relaxed text-gray-700/90 dark:text-gray-300/90;
+    @apply text-base leading-relaxed text-gray-800/90 dark:text-gray-200/90;
   }
 
   * {
