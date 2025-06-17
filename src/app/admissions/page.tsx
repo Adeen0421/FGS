@@ -80,7 +80,7 @@ export default function AdmissionsPage() {
               <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-6">
                 Welcome to the FGS Admissions Process
               </h2>
-              <div className="text-gray-900 space-y-4">
+              <div className="space-y-4">
                 <p>
                   We are delighted that you are considering FGS School for your child's education. Our admissions process is designed to be thorough yet welcoming, allowing us to get to know your child while introducing you to our community.
                 </p>
