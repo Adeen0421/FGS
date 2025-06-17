@@ -86,8 +86,10 @@ export default defineType({
           { title: 'Rejected', value: 'rejected' },
         ]
       },
-      validation: (Rule) => Rule.required(),
-      initialValue: 'new'
+      validation: (Rule) => Rule.required().custom((value) => {
+        if (!value) return 'Status is required';
+        return true;
+      })
     }),
   ],
 }); 
