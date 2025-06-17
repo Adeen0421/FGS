@@ -15,7 +15,11 @@ export default defineType({
       name: 'email',
       title: 'Email',
       type: 'string',
-      validation: (Rule) => Rule.required().email(),
+      validation: (Rule) => Rule.required().regex(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, {
+        name: 'email',
+        invert: false,
+        message: 'Please enter a valid email address'
+      }),
     }),
     defineField({
       name: 'phone',
