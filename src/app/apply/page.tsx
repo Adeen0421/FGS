@@ -12,10 +12,50 @@ const client = createClient({
   useCdn: false,
 });
 
+interface ParentInfo {
+  name: string;
+  relationship: string;
+  email: string;
+  phone: string;
+  address: string;
+}
+
+interface CurrentSchool {
+  name: string;
+  address: string;
+  grade: string;
+}
+
+interface Documents {
+  birthCertificate?: File;
+  previousReportCard?: File;
+  recommendationLetter?: File;
+  [key: string]: File | undefined;
+}
+
+interface AdditionalInfo {
+  specialNeeds?: string;
+  medicalConditions?: string;
+  allergies?: string;
+  [key: string]: string | undefined;
+}
+
+interface FormData {
+  studentName: string;
+  dateOfBirth: string;
+  gradeApplyingFor: string;
+  gender: string;
+  parentInfo: ParentInfo;
+  currentSchool: CurrentSchool;
+  documents: Documents;
+  additionalInfo: AdditionalInfo;
+  [key: string]: any;
+}
+
 export default function ApplicationForm() {
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     studentName: '',
     dateOfBirth: '',
     gradeApplyingFor: '',
@@ -30,19 +70,10 @@ export default function ApplicationForm() {
     currentSchool: {
       name: '',
       address: '',
-      currentGrade: '',
-      yearsAttended: '',
+      grade: '',
     },
-    documents: {
-      transcripts: null,
-      birthCertificate: null,
-      recommendationLetter: null,
-    },
-    additionalInfo: {
-      specialNeeds: '',
-      interests: '',
-      whyFGS: '',
-    },
+    documents: {},
+    additionalInfo: {},
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -52,7 +83,7 @@ export default function ApplicationForm() {
       setFormData(prev => ({
         ...prev,
         [section]: {
-          ...prev[section],
+          ...prev[section as keyof FormData],
           [field]: value
         }
       }));
@@ -310,28 +341,15 @@ export default function ApplicationForm() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="currentSchool.currentGrade" className="block text-sm font-medium text-[#0f172a]">
+                  <label htmlFor="currentSchool.grade" className="block text-sm font-medium text-[#0f172a]">
                     Current Grade
                   </label>
                   <input
                     type="text"
-                    id="currentSchool.currentGrade"
-                    name="currentSchool.currentGrade"
+                    id="currentSchool.grade"
+                    name="currentSchool.grade"
                     className="mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-[#10b981] focus:outline-none focus:ring-1 focus:ring-[#10b981]"
-                    value={formData.currentSchool.currentGrade}
-                    onChange={handleInputChange}
-                  />
-                </div>
-                <div>
-                  <label htmlFor="currentSchool.yearsAttended" className="block text-sm font-medium text-[#0f172a]">
-                    Years Attended
-                  </label>
-                  <input
-                    type="number"
-                    id="currentSchool.yearsAttended"
-                    name="currentSchool.yearsAttended"
-                    className="mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-[#10b981] focus:outline-none focus:ring-1 focus:ring-[#10b981]"
-                    value={formData.currentSchool.yearsAttended}
+                    value={formData.currentSchool.grade}
                     onChange={handleInputChange}
                   />
                 </div>
@@ -355,20 +373,6 @@ export default function ApplicationForm() {
             <div className="space-y-6">
               <h3 className="text-xl font-semibold text-[#0f172a]">Required Documents</h3>
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                <div>
-                  <label htmlFor="transcripts" className="block text-sm font-medium text-[#0f172a]">
-                    Academic Transcripts
-                  </label>
-                  <input
-                    type="file"
-                    id="transcripts"
-                    name="transcripts"
-                    required
-                    accept=".pdf,.doc,.docx"
-                    className="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[#10b981] file:text-white hover:file:bg-[#059669]"
-                    onChange={(e) => handleFileChange(e, 'transcripts')}
-                  />
-                </div>
                 <div>
                   <label htmlFor="birthCertificate" className="block text-sm font-medium text-[#0f172a]">
                     Birth Certificate
@@ -419,31 +423,31 @@ export default function ApplicationForm() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="additionalInfo.interests" className="block text-sm font-medium text-[#0f172a]">
-                    Interests and Activities
+                  <label htmlFor="additionalInfo.medicalConditions" className="block text-sm font-medium text-[#0f172a]">
+                    Medical Conditions
                   </label>
                   <textarea
-                    id="additionalInfo.interests"
-                    name="additionalInfo.interests"
+                    id="additionalInfo.medicalConditions"
+                    name="additionalInfo.medicalConditions"
                     rows={3}
                     className="mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-[#10b981] focus:outline-none focus:ring-1 focus:ring-[#10b981]"
-                    value={formData.additionalInfo.interests}
+                    value={formData.additionalInfo.medicalConditions}
                     onChange={handleInputChange}
-                    placeholder="Please list extracurricular activities, hobbies, and interests"
+                    placeholder="Please list any medical conditions"
                   />
                 </div>
                 <div>
-                  <label htmlFor="additionalInfo.whyFGS" className="block text-sm font-medium text-[#0f172a]">
-                    Why FGS?
+                  <label htmlFor="additionalInfo.allergies" className="block text-sm font-medium text-[#0f172a]">
+                    Allergies
                   </label>
                   <textarea
-                    id="additionalInfo.whyFGS"
-                    name="additionalInfo.whyFGS"
+                    id="additionalInfo.allergies"
+                    name="additionalInfo.allergies"
                     rows={3}
                     className="mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-[#10b981] focus:outline-none focus:ring-1 focus:ring-[#10b981]"
-                    value={formData.additionalInfo.whyFGS}
+                    value={formData.additionalInfo.allergies}
                     onChange={handleInputChange}
-                    placeholder="Why would you like to join FGS School?"
+                    placeholder="Please list any known allergies"
                   />
                 </div>
               </div>
