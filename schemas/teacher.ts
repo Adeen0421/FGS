@@ -85,8 +85,8 @@ export default defineType({
           { title: 'Accepted', value: 'accepted' },
           { title: 'Rejected', value: 'rejected' },
         ],
+        initialValue: 'new'
       },
-      initialValue: 'new',
     }),
   ],
 }); 
