@@ -61,7 +61,8 @@ export default defineType({
       type: 'file',
       validation: (Rule) => Rule.required(),
       options: {
-        accept: '.pdf,.doc,.docx',
+        storeOriginalFilename: true,
+        mimeTypes: ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document']
       },
     }),
     defineField({
