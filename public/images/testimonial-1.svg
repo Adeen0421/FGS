@@ -1,0 +1,39 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle -->
+  <circle cx="100" cy="100" r="100" fill="#0ea5e9" />
+  
+  <!-- Parent Figure -->
+  <circle cx="100" cy="85" r="35" fill="#FFE4B5" /> <!-- Head -->
+  
+  <!-- Hair -->
+  <path d="M 65 85 Q 70 40, 100 40 Q 130 40, 135 85" fill="#8B4513" />
+  <path d="M 65 85 Q 70 65, 100 60 Q 130 65, 135 85" fill="#8B4513" />
+  
+  <!-- Face Features -->
+  <circle cx="85" cy="80" r="5" fill="#FFFFFF" /> <!-- Left Eye Background -->
+  <circle cx="115" cy="80" r="5" fill="#FFFFFF" /> <!-- Right Eye Background -->
+  <circle cx="85" cy="80" r="2.5" fill="#8B4513" /> <!-- Left Eye -->
+  <circle cx="115" cy="80" r="2.5" fill="#8B4513" /> <!-- Right Eye -->
+  <path d="M 90 100 Q 100 110, 110 100" stroke="#8B4513" stroke-width="2" fill="none" /> <!-- Smile -->
+  
+  <!-- Glasses -->
+  <circle cx="85" cy="80" r="10" fill="none" stroke="#000000" stroke-width="2" /> <!-- Left Lens -->
+  <circle cx="115" cy="80" r="10" fill="none" stroke="#000000" stroke-width="2" /> <!-- Right Lens -->
+  <line x1="95" y1="80" x2="105" y2="80" stroke="#000000" stroke-width="2" /> <!-- Bridge -->
+  <line x1="75" y1="80" x2="65" y2="75" stroke="#000000" stroke-width="2" /> <!-- Left Arm -->
+  <line x1="125" y1="80" x2="135" y2="75" stroke="#000000" stroke-width="2" /> <!-- Right Arm -->
+  
+  <!-- Body -->
+  <path d="M 70 120 L 65 170 L 135 170 L 130 120" fill="#FFE4B5" /> <!-- Neck and upper body -->
+  <rect x="65" y="170" width="70" height="30" fill="#4682B4" /> <!-- Blazer/Suit -->
+  
+  <!-- Necklace -->
+  <path d="M 90 130 Q 100 140, 110 130" stroke="#FFD700" stroke-width="3" fill="none" />
+  <circle cx="100" cy="140" r="5" fill="#FFD700" /> <!-- Pendant -->
+  
+  <!-- Professional Outfit -->
+  <rect x="70" y="145" width="60" height="25" fill="#FFFFFF" /> <!-- Collar/Shirt -->
+  
+  <!-- Name -->
+  <text x="100" y="190" font-family="Arial" font-size="12" font-weight="bold" text-anchor="middle" fill="#FFFFFF">PARENT</text>
+</svg> 

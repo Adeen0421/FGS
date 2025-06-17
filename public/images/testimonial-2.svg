@@ -1,0 +1,37 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle -->
+  <circle cx="100" cy="100" r="100" fill="#14b8a6" />
+  
+  <!-- Alumni Figure -->
+  <circle cx="100" cy="75" r="35" fill="#F5DEB3" /> <!-- Head -->
+  
+  <!-- Hair -->
+  <path d="M 65 70 Q 70 35, 100 30 Q 130 35, 135 70" fill="#36454F" /> <!-- Hair top -->
+  <path d="M 65 70 Q 70 40, 80 45 L 65 75" fill="#36454F" /> <!-- Side part -->
+  <path d="M 135 70 Q 130 40, 120 45 L 135 75" fill="#36454F" /> <!-- Side part -->
+  
+  <!-- Face Features -->
+  <circle cx="85" cy="70" r="5" fill="#FFFFFF" /> <!-- Left Eye Background -->
+  <circle cx="115" cy="70" r="5" fill="#FFFFFF" /> <!-- Right Eye Background -->
+  <circle cx="85" cy="70" r="2.5" fill="#36454F" /> <!-- Left Eye -->
+  <circle cx="115" cy="70" r="2.5" fill="#36454F" /> <!-- Right Eye -->
+  <path d="M 90 90 Q 100 100, 110 90" stroke="#36454F" stroke-width="2" fill="none" /> <!-- Smile -->
+  
+  <!-- Graduation Cap -->
+  <rect x="65" y="20" width="70" height="10" fill="#000000" /> <!-- Cap top -->
+  <path d="M 65 30 L 65 40 L 135 40 L 135 30 Z" fill="#000000" /> <!-- Cap band -->
+  <path d="M 100 20 L 140 50" stroke="#FFD700" stroke-width="1" /> <!-- Tassel -->
+  <circle cx="140" cy="50" r="5" fill="#FFD700" /> <!-- Tassel end -->
+  
+  <!-- Body -->
+  <path d="M 70 110 L 65 170 L 135 170 L 130 110 Z" fill="#F5DEB3" /> <!-- Neck and chest -->
+  <rect x="65" y="130" width="70" height="70" fill="#000000" /> <!-- Graduation gown -->
+  
+  <!-- Diploma -->
+  <rect x="70" y="140" width="30" height="20" fill="#FFFFFF" stroke="#8B4513" stroke-width="2" />
+  <path d="M 70 140 C 80 145, 90 145, 100 140" stroke="#8B4513" stroke-width="1" fill="none" /> <!-- Diploma curve -->
+  <rect x="70" y="140" width="30" height="3" fill="#FF0000" /> <!-- Diploma ribbon -->
+  
+  <!-- Name -->
+  <text x="100" y="180" font-family="Arial" font-size="12" font-weight="bold" text-anchor="middle" fill="#FFFFFF">ALUMNI</text>
+</svg> 

@@ -1,0 +1,92 @@
+<svg width="600" height="400" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#f9f7f7" />
+  
+  <!-- Purple gradient overlay -->
+  <rect width="100%" height="100%" fill="url(#purple-gradient)" />
+  <defs>
+    <linearGradient id="purple-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9d4edd" stop-opacity="0.7" />
+      <stop offset="100%" stop-color="#7b2cbf" stop-opacity="0.8" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Art Gallery Walls -->
+  <rect x="50" y="80" width="500" height="300" fill="#ffffff" />
+  <rect x="60" y="90" width="480" height="280" fill="#f8f9fa" stroke="#e9ecef" stroke-width="1" />
+  
+  <!-- Exhibition Banner -->
+  <rect x="100" y="30" width="400" height="60" fill="#ffffff" rx="10" ry="10" />
+  <text x="300" y="65" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="#7b2cbf">STUDENT ARTS EXHIBITION</text>
+  <text x="300" y="85" font-family="Arial" font-size="14" text-anchor="middle" fill="#666666">DECEMBER 10, 2023</text>
+  
+  <!-- Artwork 1: Abstract Painting -->
+  <rect x="100" y="120" width="100" height="80" fill="#ffffff" stroke="#000000" stroke-width="2" />
+  <circle cx="130" cy="150" r="20" fill="#ff5e5b" />
+  <rect x="150" y="130" width="30" height="30" fill="#0496ff" />
+  <path d="M 110 170 L 130 140 L 150 180" stroke="#06d6a0" stroke-width="3" fill="none" />
+  
+  <!-- Artwork 2: Landscape -->
+  <rect x="250" y="120" width="100" height="80" fill="#ffffff" stroke="#000000" stroke-width="2" />
+  <rect x="250" y="160" width="100" height="40" fill="#8ac926" /> <!-- Green ground -->
+  <rect x="250" y="120" width="100" height="40" fill="#90e0ef" /> <!-- Blue sky -->
+  <circle cx="290" cy="140" r="10" fill="#ffbe0b" /> <!-- Sun -->
+  <polygon points="280,160 290,140 300,160" fill="#6a4c93" /> <!-- Mountain -->
+  <polygon points="310,160 320,145 330,160" fill="#6a4c93" /> <!-- Mountain -->
+  
+  <!-- Artwork 3: Portrait -->
+  <rect x="400" y="120" width="100" height="80" fill="#ffffff" stroke="#000000" stroke-width="2" />
+  <circle cx="450" cy="145" r="20" fill="#ffcdb2" /> <!-- Face -->
+  <circle cx="443" cy="140" r="3" fill="#000000" /> <!-- Left Eye -->
+  <circle cx="457" cy="140" r="3" fill="#000000" /> <!-- Right Eye -->
+  <path d="M 440 155 Q 450 160 460 155" stroke="#000000" stroke-width="2" fill="none" /> <!-- Smile -->
+  <path d="M 430 130 Q 450 120 470 130" stroke="#ff7700" stroke-width="4" fill="none" /> <!-- Hair -->
+  
+  <!-- Artwork 4: Sculpture -->
+  <rect x="100" y="240" width="100" height="80" fill="#ffffff" stroke="#000000" stroke-width="2" />
+  <ellipse cx="150" cy="290" rx="20" ry="10" fill="#adb5bd" /> <!-- Base -->
+  <rect x="145" y="250" width="10" height="40" fill="#adb5bd" /> <!-- Body -->
+  <circle cx="150" cy="250" r="15" fill="#adb5bd" /> <!-- Head -->
+  
+  <!-- Artwork 5: Collage -->
+  <rect x="250" y="240" width="100" height="80" fill="#ffffff" stroke="#000000" stroke-width="2" />
+  <rect x="260" y="250" width="25" height="25" fill="#ffadad" />
+  <rect x="290" y="250" width="25" height="25" fill="#ffd6a5" />
+  <rect x="320" y="250" width="20" height="25" fill="#fdffb6" />
+  <rect x="260" y="280" width="35" height="30" fill="#caffbf" />
+  <rect x="300" y="280" width="40" height="30" fill="#9bf6ff" />
+  
+  <!-- Artwork 6: Photography -->
+  <rect x="400" y="240" width="100" height="80" fill="#ffffff" stroke="#000000" stroke-width="2" />
+  <rect x="410" y="250" width="80" height="60" fill="#212529" /> <!-- Photo background -->
+  <circle cx="430" cy="265" r="8" fill="#ffffff" /> <!-- Moon -->
+  <path d="M 410 290 Q 430 270 450 290 Q 470 310 490 290" fill="#3a86ff" /> <!-- Water -->
+  <path d="M 410 290 L 490 290 L 490 310 L 410 310 Z" fill="#3a86ff" /> <!-- Water base -->
+  
+  <!-- Visitors -->
+  <!-- Visitor 1 -->
+  <circle cx="130" cy="220" r="10" fill="#ffdb58" />
+  <rect x="125" cy="230" width="10" height="20" fill="#ff6347" />
+  <line x1="130" y1="250" x2="120" y2="270" stroke="#ff6347" stroke-width="2" />
+  <line x1="130" y1="250" x2="140" y2="270" stroke="#ff6347" stroke-width="2" />
+  
+  <!-- Visitor 2 -->
+  <circle cx="300" cy="210" r="10" fill="#ffdb58" />
+  <rect x="295" cy="220" width="10" height="20" fill="#4169e1" />
+  <line x1="300" y1="240" x2="290" y2="260" stroke="#4169e1" stroke-width="2" />
+  <line x1="300" y1="240" x2="310" y2="260" stroke="#4169e1" stroke-width="2" />
+  
+  <!-- Visitor 3 -->
+  <circle cx="450" cy="330" r="10" fill="#ffdb58" />
+  <rect x="445" cy="340" width="10" height="20" fill="#32cd32" />
+  <line x1="450" y1="360" x2="440" y2="380" stroke="#32cd32" stroke-width="2" />
+  <line x1="450" y1="360" x2="460" y2="380" stroke="#32cd32" stroke-width="2" />
+  
+  <!-- Art Supplies in Corner -->
+  <rect x="70" y="330" width="30" height="5" fill="#ff6b6b" /> <!-- Paint tube -->
+  <path d="M 90 330 L 100 310 L 105 312 L 95 332 Z" fill="#ced4da" /> <!-- Paintbrush -->
+  <rect x="80" y="340" width="20" height="15" fill="#ced4da" /> <!-- Palette -->
+  <circle cx="85" cy="345" r="3" fill="#ff6b6b" />
+  <circle cx="95" cy="345" r="3" fill="#ffbe0b" />
+  <circle cx="90" cy="350" r="3" fill="#3a86ff" />
+</svg> 

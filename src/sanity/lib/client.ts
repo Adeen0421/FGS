@@ -1,0 +1,28 @@
+import { createClient } from 'next-sanity';
+import imageUrlBuilder from '@sanity/image-url';
+import { SanityImageSource } from '@sanity/image-url/lib/types/types';
+
+if (!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) {
+  throw new Error('Missing environment variable: NEXT_PUBLIC_SANITY_PROJECT_ID');
+}
+
+if (!process.env.NEXT_PUBLIC_SANITY_DATASET) {
+  throw new Error('Missing environment variable: NEXT_PUBLIC_SANITY_DATASET');
+}
+
+export const client = createClient({
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
+  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
+  apiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION || '2024-02-25',
+  useCdn: process.env.NODE_ENV === 'production',
+  stega: {
+    enabled: false,
+    studioUrl: '/studio'
+  },
+});
+
+const builder = imageUrlBuilder(client);
+
+export function urlFor(source: SanityImageSource) {
+  return builder.image(source);
+} 

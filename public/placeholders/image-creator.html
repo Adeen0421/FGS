@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Placeholder Image Generator</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      padding: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .image-container {
+      margin-bottom: 2rem;
+      border: 1px solid #ddd;
+      padding: 1rem;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      background: #0070f3;
+      color: white;
+      border: none;
+      border-radius: 0.25rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Placeholder Image Generator</h1>
+  
+  <div class="image-container">
+    <h2>Logo</h2>
+    <svg id="logo" width="100" height="100" viewBox="0 0 100 100">
+      <rect width="100%" height="100%" fill="#0070f3" />
+      <text x="50%" y="50%" font-size="24" text-anchor="middle" dominant-baseline="middle" fill="white">FGS</text>
+      <text x="50%" y="70%" font-size="12" text-anchor="middle" dominant-baseline="middle" fill="white">SCHOOL</text>
+    </svg>
+    <div>
+      <button onclick="downloadSvg('logo', 'logo.svg')">Download SVG</button>
+    </div>
+  </div>
+
+  <div class="image-container">
+    <h2>Hero Image</h2>
+    <svg id="hero" width="800" height="400" viewBox="0 0 800 400">
+      <defs>
+        <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+          <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#0084ff22" stroke-width="1"/>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="#0070f3" />
+      <rect width="100%" height="100%" fill="url(#grid)" />
+      <text x="50%" y="50%" font-size="48" text-anchor="middle" dominant-baseline="middle" fill="white">HERO IMAGE</text>
+    </svg>
+    <div>
+      <button onclick="downloadSvg('hero', 'hero-school.svg')">Download SVG</button>
+    </div>
+  </div>
+  
+  <div class="image-container">
+    <h2>Campus Highlight</h2>
+    <svg id="campus" width="600" height="400" viewBox="0 0 600 400">
+      <rect width="100%" height="100%" fill="#10b981" />
+      <rect x="100" y="100" width="400" height="200" fill="#059669" />
+      <circle cx="300" cy="200" r="80" fill="#34d399" />
+      <text x="50%" y="50%" font-size="32" text-anchor="middle" dominant-baseline="middle" fill="white">CAMPUS VIEW</text>
+    </svg>
+    <div>
+      <button onclick="downloadSvg('campus', 'campus-highlight.svg')">Download SVG</button>
+    </div>
+  </div>
+
+  <div class="image-container">
+    <h2>Mission Image</h2>
+    <svg id="mission" width="600" height="400" viewBox="0 0 600 400">
+      <rect width="100%" height="100%" fill="#6366f1" />
+      <rect x="50" y="50" width="500" height="300" stroke="white" stroke-width="10" stroke-dasharray="20,10" fill="none" />
+      <text x="50%" y="50%" font-size="32" text-anchor="middle" dominant-baseline="middle" fill="white">MISSION</text>
+    </svg>
+    <div>
+      <button onclick="downloadSvg('mission', 'mission-image.svg')">Download SVG</button>
+    </div>
+  </div>
+
+  <div class="image-container">
+    <h2>Event Images (3)</h2>
+    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+      <svg id="event1" width="200" height="150" viewBox="0 0 200 150">
+        <rect width="100%" height="100%" fill="#ef4444" />
+        <text x="50%" y="50%" font-size="16" text-anchor="middle" dominant-baseline="middle" fill="white">SCIENCE FAIR</text>
+      </svg>
+      <svg id="event2" width="200" height="150" viewBox="0 0 200 150">
+        <rect width="100%" height="100%" fill="#f59e0b" />
+        <text x="50%" y="50%" font-size="16" text-anchor="middle" dominant-baseline="middle" fill="white">CONFERENCE</text>
+      </svg>
+      <svg id="event3" width="200" height="150" viewBox="0 0 200 150">
+        <rect width="100%" height="100%" fill="#8b5cf6" />
+        <text x="50%" y="50%" font-size="16" text-anchor="middle" dominant-baseline="middle" fill="white">ARTS</text>
+      </svg>
+    </div>
+    <div style="margin-top: 10px;">
+      <button onclick="downloadSvg('event1', 'event-science.svg')">Download Event 1</button>
+      <button onclick="downloadSvg('event2', 'event-conference.svg')">Download Event 2</button>
+      <button onclick="downloadSvg('event3', 'event-arts.svg')">Download Event 3</button>
+    </div>
+  </div>
+
+  <div class="image-container">
+    <h2>Testimonial Images (3)</h2>
+    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+      <svg id="testimonial1" width="100" height="100" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="50" fill="#0ea5e9" />
+        <text x="50%" y="50%" font-size="14" text-anchor="middle" dominant-baseline="middle" fill="white">PARENT</text>
+      </svg>
+      <svg id="testimonial2" width="100" height="100" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="50" fill="#14b8a6" />
+        <text x="50%" y="50%" font-size="14" text-anchor="middle" dominant-baseline="middle" fill="white">ALUMNI</text>
+      </svg>
+      <svg id="testimonial3" width="100" height="100" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="50" fill="#8b5cf6" />
+        <text x="50%" y="50%" font-size="14" text-anchor="middle" dominant-baseline="middle" fill="white">STUDENT</text>
+      </svg>
+    </div>
+    <div style="margin-top: 10px;">
+      <button onclick="downloadSvg('testimonial1', 'testimonial-1.svg')">Download Testimonial 1</button>
+      <button onclick="downloadSvg('testimonial2', 'testimonial-2.svg')">Download Testimonial 2</button>
+      <button onclick="downloadSvg('testimonial3', 'testimonial-3.svg')">Download Testimonial 3</button>
+    </div>
+  </div>
+
+  <script>
+    function downloadSvg(id, filename) {
+      const svg = document.getElementById(id);
+      const serializer = new XMLSerializer();
+      const svgBlob = new Blob([serializer.serializeToString(svg)], {type: 'image/svg+xml'});
+      const url = URL.createObjectURL(svgBlob);
+      
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  </script>
+</body>
+</html> 

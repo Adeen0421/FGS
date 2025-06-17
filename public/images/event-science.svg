@@ -1,0 +1,85 @@
+<svg width="600" height="400" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#f0f9ff" />
+  
+  <!-- Blue gradient overlay -->
+  <rect width="100%" height="100%" fill="url(#blue-gradient)" />
+  <defs>
+    <linearGradient id="blue-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0077b6" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#023e8a" stop-opacity="0.9" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Science Fair Banner -->
+  <rect x="100" y="30" width="400" height="60" fill="#ffffff" rx="10" ry="10" />
+  <text x="300" y="70" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="#0077b6">ANNUAL SCIENCE FAIR</text>
+  
+  <!-- Display Tables -->
+  <!-- Table 1 with volcano -->
+  <rect x="80" y="150" width="120" height="70" fill="#d9d9d9" />
+  <rect x="85" y="220" width="110" height="10" fill="#a9a9a9" />
+  <!-- Volcano -->
+  <polygon points="140,150 110,190 170,190" fill="#8b4513" />
+  <polygon points="140,130 120,170 160,170" fill="#a52a2a" />
+  <ellipse cx="140" cy="130" rx="10" ry="5" fill="#ff4500" />
+  <path d="M 138 120 C 138 110, 142 110, 142 120" stroke="#ff4500" stroke-width="2" fill="none" />
+  <path d="M 136 120 C 136 105, 144 105, 144 120" stroke="#ff4500" stroke-width="2" fill="none" />
+  
+  <!-- Table 2 with robotics -->
+  <rect x="240" y="150" width="120" height="70" fill="#d9d9d9" />
+  <rect x="245" y="220" width="110" height="10" fill="#a9a9a9" />
+  <!-- Robot -->
+  <rect x="280" y="160" width="40" height="30" fill="#c0c0c0" stroke="#808080" />
+  <circle cx="290" cy="180" r="5" fill="#ff0000" /> <!-- Eye -->
+  <circle cx="310" cy="180" r="5" fill="#ff0000" /> <!-- Eye -->
+  <rect x="290" y="190" width="20" height="5" fill="#808080" /> <!-- Mouth -->
+  <rect x="270" y="190" width="10" height="25" fill="#c0c0c0" /> <!-- Left Arm -->
+  <rect x="320" y="190" width="10" height="25" fill="#c0c0c0" /> <!-- Right Arm -->
+  <rect x="285" y="190" width="10" height="30" fill="#c0c0c0" /> <!-- Left Leg -->
+  <rect x="305" y="190" width="10" height="30" fill="#c0c0c0" /> <!-- Right Leg -->
+  
+  <!-- Table 3 with chemistry -->
+  <rect x="400" y="150" width="120" height="70" fill="#d9d9d9" />
+  <rect x="405" y="220" width="110" height="10" fill="#a9a9a9" />
+  <!-- Chemistry Setup -->
+  <rect x="430" y="170" width="20" height="40" fill="#add8e6" stroke="#4682b4" /> <!-- Beaker -->
+  <rect x="460" y="180" width="10" height="30" fill="#ffb6c1" stroke="#4682b4" /> <!-- Test tube -->
+  <path d="M 470 160 L 470 180 M 466 165 L 474 165" stroke="#808080" stroke-width="2" /> <!-- Test tube holder -->
+  <ellipse cx="440" cy="170" rx="10" ry="3" fill="#add8e6" stroke="#4682b4" /> <!-- Beaker top -->
+  <path d="M 435 160 C 435 140, 445 140, 445 160" stroke="#90ee90" stroke-width="2" fill="none" /> <!-- Bubbles -->
+  
+  <!-- Students -->
+  <!-- Student at volcano -->
+  <circle cx="100" cy="180" r="15" fill="#ffdb58" />
+  <rect x="95" y="195" width="10" height="20" fill="#ff6347" />
+  
+  <!-- Student at robot -->
+  <circle cx="230" cy="180" r="15" fill="#ffdb58" />
+  <rect x="225" y="195" width="10" height="20" fill="#4169e1" />
+  
+  <!-- Student at chemistry -->
+  <circle cx="380" cy="180" r="15" fill="#ffdb58" />
+  <rect x="375" y="195" width="10" height="20" fill="#32cd32" />
+  
+  <!-- Judges -->
+  <rect x="150" y="300" width="300" height="40" fill="#4682b4" rx="5" ry="5" />
+  <!-- Judge 1 -->
+  <circle cx="200" cy="280" r="15" fill="#ffdb58" />
+  <rect x="195" y="295" width="10" height="20" fill="#000000" />
+  <!-- Judge 2 -->
+  <circle cx="300" cy="280" r="15" fill="#ffdb58" />
+  <rect x="295" y="295" width="10" height="20" fill="#000000" />
+  <!-- Judge 3 -->
+  <circle cx="400" cy="280" r="15" fill="#ffdb58" />
+  <rect x="395" y="295" width="10" height="20" fill="#000000" />
+  
+  <!-- Decorations -->
+  <circle cx="50" cy="50" r="20" fill="#ff6347" opacity="0.7" />
+  <circle cx="550" cy="50" r="25" fill="#4169e1" opacity="0.7" />
+  <circle cx="50" cy="350" r="15" fill="#32cd32" opacity="0.7" />
+  <circle cx="550" cy="350" r="30" fill="#ff6347" opacity="0.7" />
+  
+  <!-- Text Overlay -->
+  <text x="300" y="350" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="#ffffff">OCTOBER 15, 2023</text>
+</svg> 

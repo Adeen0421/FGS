@@ -1,0 +1,89 @@
+<svg width="600" height="400" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#f5f5f5" />
+  
+  <!-- Orange gradient overlay -->
+  <rect width="100%" height="100%" fill="url(#orange-gradient)" />
+  <defs>
+    <linearGradient id="orange-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fd9e02" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#fd7702" stop-opacity="0.9" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Conference Room -->
+  <rect x="50" y="100" width="500" height="250" fill="#ffffff" rx="5" ry="5" />
+  
+  <!-- Conference Table -->
+  <ellipse cx="300" cy="250" rx="220" ry="80" fill="#8b4513" />
+  <ellipse cx="300" cy="250" rx="200" ry="70" fill="#a0522d" />
+  
+  <!-- Conference Banner -->
+  <rect x="100" y="30" width="400" height="60" fill="#ffffff" rx="10" ry="10" />
+  <text x="300" y="65" font-family="Arial" font-size="20" font-weight="bold" text-anchor="middle" fill="#fd7702">PARENT-TEACHER CONFERENCE</text>
+  <text x="300" y="85" font-family="Arial" font-size="14" text-anchor="middle" fill="#666666">NOVEMBER 5, 2023</text>
+  
+  <!-- Teachers (Left Side) -->
+  <!-- Teacher 1 -->
+  <circle cx="150" cy="200" r="20" fill="#ffdb58" />
+  <rect x="140" y="220" width="20" height="30" fill="#4682b4" />
+  <rect x="145" y="220" width="10" height="60" fill="#4682b4" /> <!-- Make it look like sitting -->
+  
+  <!-- Teacher 2 -->
+  <circle cx="200" cy="180" r="20" fill="#ffdb58" />
+  <rect x="190" y="200" width="20" height="30" fill="#800080" />
+  <rect x="195" y="200" width="10" height="60" fill="#800080" /> <!-- Make it look like sitting -->
+  
+  <!-- Teacher 3 -->
+  <circle cx="250" cy="200" r="20" fill="#ffdb58" />
+  <rect x="240" y="220" width="20" height="30" fill="#2e8b57" />
+  <rect x="245" y="220" width="10" height="60" fill="#2e8b57" /> <!-- Make it look like sitting -->
+  
+  <!-- Parents (Right Side) -->
+  <!-- Parent 1 -->
+  <circle cx="350" cy="200" r="20" fill="#ffdb58" />
+  <rect x="340" y="220" width="20" height="30" fill="#ff6347" />
+  <rect x="345" y="220" width="10" height="60" fill="#ff6347" /> <!-- Make it look like sitting -->
+  
+  <!-- Parent 2 -->
+  <circle cx="400" cy="180" r="20" fill="#ffdb58" />
+  <rect x="390" y="200" width="20" height="30" fill="#4169e1" />
+  <rect x="395" y="200" width="10" height="60" fill="#4169e1" /> <!-- Make it look like sitting -->
+  
+  <!-- Parent 3 -->
+  <circle cx="450" cy="200" r="20" fill="#ffdb58" />
+  <rect x="440" y="220" width="20" height="30" fill="#daa520" />
+  <rect x="445" y="220" width="10" height="60" fill="#daa520" /> <!-- Make it look like sitting -->
+  
+  <!-- Papers and Items on Table -->
+  <rect x="160" y="240" width="30" height="20" fill="#ffffff" transform="rotate(10,160,240)" /> <!-- Paper -->
+  <rect x="300" y="230" width="40" height="25" fill="#ffffff" /> <!-- Folder -->
+  <rect x="400" y="245" width="20" height="10" fill="#000000" /> <!-- Device -->
+  <circle cx="380" cy="250" r="5" fill="#1e90ff" /> <!-- Water glass -->
+  <circle cx="220" cy="250" r="5" fill="#1e90ff" /> <!-- Water glass -->
+  
+  <!-- Windows on the back wall -->
+  <rect x="100" y="120" width="70" height="70" fill="#87ceeb" />
+  <line x1="135" y1="120" x2="135" y2="190" stroke="#000000" stroke-width="2" />
+  <line x1="100" y1="155" x2="170" y2="155" stroke="#000000" stroke-width="2" />
+  
+  <rect x="265" y="120" width="70" height="70" fill="#87ceeb" />
+  <line x1="300" y1="120" x2="300" y2="190" stroke="#000000" stroke-width="2" />
+  <line x1="265" y1="155" x2="335" y2="155" stroke="#000000" stroke-width="2" />
+  
+  <rect x="430" y="120" width="70" height="70" fill="#87ceeb" />
+  <line x1="465" y1="120" x2="465" y2="190" stroke="#000000" stroke-width="2" />
+  <line x1="430" y1="155" x2="500" y2="155" stroke="#000000" stroke-width="2" />
+  
+  <!-- Presentation Screen -->
+  <rect x="210" y="320" width="180" height="10" fill="#808080" /> <!-- Stand -->
+  <rect x="240" y="130" width="120" height="90" fill="#ffffff" stroke="#000000" stroke-width="2" /> <!-- Screen -->
+  <text x="300" y="175" font-family="Arial" font-size="12" text-anchor="middle" fill="#000000">Student</text>
+  <text x="300" y="190" font-family="Arial" font-size="12" text-anchor="middle" fill="#000000">Progress</text>
+  
+  <!-- Decorative Elements -->
+  <circle cx="50" cy="50" r="20" fill="#fff" opacity="0.2" />
+  <circle cx="550" cy="50" r="15" fill="#fff" opacity="0.2" />
+  <circle cx="50" cy="350" r="25" fill="#fff" opacity="0.2" />
+  <circle cx="550" cy="350" r="20" fill="#fff" opacity="0.2" />
+</svg> 
