@@ -59,14 +59,7 @@ export default defineType({
       name: 'cv',
       title: 'CV',
       type: 'file',
-      validation: (Rule) => Rule.required().custom((value) => {
-        if (!value) return 'CV is required';
-        const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
-        if (!allowedTypes.includes(value.asset._type)) {
-          return 'Only PDF, DOC, and DOCX files are allowed';
-        }
-        return true;
-      }),
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'coverLetter',
