@@ -84,9 +84,10 @@ export default defineType({
           { title: 'Interviewed', value: 'interviewed' },
           { title: 'Accepted', value: 'accepted' },
           { title: 'Rejected', value: 'rejected' },
-        ],
-        initialValue: 'new'
+        ]
       },
+      validation: (Rule) => Rule.required(),
+      initialValue: 'new'
     }),
   ],
 }); 
