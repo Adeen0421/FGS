@@ -10,7 +10,7 @@ interface GalleryGridProps {
   limit?: number;
 }
 
-export default function GalleryGrid({ events, limit }: GalleryGridProps) {
+export function GalleryGrid({ events, limit }: GalleryGridProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
 

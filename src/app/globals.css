@@ -1,146 +1,407 @@
-/* 
- * This file uses Tailwind CSS features.
- * 
- * @csstools https://csstools.github.io/
- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
-
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 199 89% 48%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 172 66% 50%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 199 89% 48%;
-    --radius: 0.75rem;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 199 89% 48%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 172 66% 50%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 199 89% 48%;
+    --primary: theme('colors.primary.500');
+    --primary-light: theme('colors.primary.400');
+    --primary-dark: theme('colors.primary.600');
+    --secondary: theme('colors.secondary.500');
+    --accent: theme('colors.accent.500');
   }
 
   html {
-    @apply scroll-smooth;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   
   body {
-    @apply bg-background text-foreground antialiased;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    @apply bg-white text-gray-900 antialiased;
   }
 
+  /* Enhanced Typography */
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'DM Sans', sans-serif;
-    @apply font-semibold tracking-tight;
+    @apply font-bold tracking-tight;
   }
 
-  h1 {
-    @apply text-4xl md:text-5xl;
+  /* Modern Heading Styles */
+  h1, .h1 {
+    @apply text-5xl md:text-6xl lg:text-7xl font-bold;
   }
 
-  h2 {
-    @apply text-3xl md:text-4xl;
+  h2, .h2 {
+    @apply text-4xl md:text-5xl font-bold;
   }
 
-  h3 {
-    @apply text-2xl md:text-3xl;
+  h3, .h3 {
+    @apply text-3xl md:text-4xl font-bold;
   }
 
-  h4 {
-    @apply text-xl md:text-2xl;
+  /* Display Text - For hero sections */
+  .text-display-elegant {
+    @apply text-5xl md:text-6xl lg:text-7xl font-bold;
+    background: linear-gradient(135deg, #18181b, #27272a, #3f3f46);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
-  h5 {
-    @apply text-lg md:text-xl;
+  .text-display-warm {
+    @apply text-5xl md:text-6xl lg:text-7xl font-bold;
+    background: linear-gradient(135deg, #78350f, #92400e, #b45309);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
-  h6 {
-    @apply text-base md:text-lg;
+  .text-display-nature {
+    @apply text-5xl md:text-6xl lg:text-7xl font-bold;
+    background: linear-gradient(135deg, #064e3b, #065f46, #047857);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
-  p {
-    @apply text-base leading-relaxed text-gray-900 dark:text-gray-100;
+  /* Section Headers */
+  .text-header-minimal {
+    @apply text-3xl md:text-4xl font-bold;
+    background: linear-gradient(135deg, #27272a, #3f3f46, #52525b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
-  * {
-    @apply border-border;
+  .text-header-earth {
+    @apply text-3xl md:text-4xl font-bold;
+    background: linear-gradient(135deg, #78350f, #854d0e, #713f12);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
-  /* Smooth anchor transitions */
-  a {
-    @apply transition-all duration-200 ease-out;
+  .text-header-forest {
+    @apply text-3xl md:text-4xl font-bold;
+    background: linear-gradient(135deg, #064e3b, #065f46, #047857);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Modern Text Gradients */
+  .text-gradient-stone {
+    background: linear-gradient(135deg, #44403c, #57534e, #78716c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-earth {
+    background: linear-gradient(135deg, #92400e, #78350f, #9a3412);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-forest {
+    background: linear-gradient(135deg, #064e3b, #065f46, #047857);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-zinc {
+    background: linear-gradient(135deg, #3f3f46, #52525b, #71717a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-slate {
+    background: linear-gradient(135deg, #334155, #475569, #64748b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Accent Text Colors */
+  .text-accent-blue {
+    @apply text-blue-600 hover:text-blue-700 transition-colors;
+  }
+
+  .text-accent-purple {
+    @apply text-purple-600 hover:text-purple-700 transition-colors;
+  }
+
+  .text-accent-emerald {
+    @apply text-emerald-600 hover:text-emerald-700 transition-colors;
+  }
+
+  .text-accent-rose {
+    @apply text-rose-600 hover:text-rose-700 transition-colors;
   }
 }
 
-/* Modern animation utilities */
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@layer components {
+  /* Text Style Components */
+  .text-gradient-primary {
+    @apply bg-gradient-to-r from-primary-600 via-primary-500 to-primary-700 
+           bg-clip-text text-transparent;
+  }
+
+  .text-gradient-cool {
+    @apply bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-600 
+           bg-clip-text text-transparent;
+  }
+
+  .text-gradient-warm {
+    @apply bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 
+           bg-clip-text text-transparent;
+  }
+
+  /* Section Title Styles */
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold mb-6
+           bg-gradient-to-r from-gray-900 to-gray-700
+           bg-clip-text text-transparent;
+  }
+
+  .section-subtitle {
+    @apply text-lg md:text-xl text-gray-600 mb-8 max-w-2xl
+           leading-relaxed;
+  }
+
+  /* Card Text Styles */
+  .card-title {
+    @apply text-xl font-semibold text-gray-900 mb-2
+           group-hover:text-primary-600 transition-colors duration-300;
+  }
+
+  .card-description {
+    @apply text-gray-600 leading-relaxed;
+  }
+
+  /* Link Styles */
+  .link-primary {
+    @apply text-primary-600 hover:text-primary-700 
+           underline-offset-4 hover:underline
+           transition-colors duration-200;
+  }
+
+  .link-subtle {
+    @apply text-gray-600 hover:text-gray-900
+           transition-colors duration-200;
+  }
+
+  /* Button Text Styles */
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-xl 
+           font-medium transition-all duration-200 ease-in-out 
+           focus:outline-none focus:ring-2 focus:ring-offset-2 
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply btn bg-primary-600 text-white 
+           hover:bg-primary-700 focus:ring-primary-500/50
+           shadow-sm hover:shadow-md;
   }
   
-  .text-pretty {
-    text-wrap: pretty;
+  .btn-secondary {
+    @apply btn bg-gray-100 text-gray-900 
+           hover:bg-gray-200 focus:ring-gray-500/50
+           border border-gray-200;
   }
 
-  .animate-fade-in {
-    @apply opacity-0 animate-[fadeIn_0.5s_ease-out_forwards];
+  .btn-outline {
+    @apply btn border-2 border-primary-600 text-primary-600 
+           hover:bg-primary-600 hover:text-white
+           focus:ring-primary-500/50;
   }
 
-  .animate-slide-up {
-    @apply opacity-0 translate-y-4 animate-[slideUp_0.5s_ease-out_forwards];
+  /* Feature Text Styles */
+  .feature-title {
+    @apply text-lg font-semibold text-gray-900 mb-2;
   }
 
-  .animate-scale {
-    @apply scale-95 opacity-0 animate-[scale_0.3s_ease-out_forwards];
+  .feature-description {
+    @apply text-gray-600 leading-relaxed;
   }
 
-  .hover-lift {
-    @apply transition-transform duration-300 ease-out hover:-translate-y-1;
+  /* Stats Text Styles */
+  .stat-value {
+    @apply text-4xl font-bold text-primary-600 mb-1;
   }
 
-  .hover-scale {
-    @apply transition-transform duration-300 ease-out hover:scale-105;
+  .stat-label {
+    @apply text-sm font-medium text-gray-600;
+  }
+
+  /* Quote Text Styles */
+  .quote-text {
+    @apply text-xl text-gray-700 italic leading-relaxed mb-4;
+  }
+
+  .quote-author {
+    @apply text-sm font-medium text-gray-900;
+  }
+
+  /* List Text Styles */
+  .list-title {
+    @apply text-lg font-semibold text-gray-900 mb-2;
+  }
+
+  .list-item {
+    @apply text-gray-600 leading-relaxed mb-1;
+  }
+
+  /* Feature Text Styles */
+  .feature-title-tech {
+    @apply text-lg font-semibold text-indigo-900 mb-2 
+           hover:text-indigo-700 transition-colors;
+  }
+
+  .feature-title-nature {
+    @apply text-lg font-semibold text-emerald-900 mb-2 
+           hover:text-emerald-700 transition-colors;
+  }
+
+  .feature-title-creative {
+    @apply text-lg font-semibold text-fuchsia-900 mb-2 
+           hover:text-fuchsia-700 transition-colors;
+  }
+
+  /* Card Text Variations */
+  .card-title-minimal {
+    @apply text-xl font-semibold text-gray-900 mb-2
+           group-hover:text-blue-600 transition-colors;
+  }
+
+  .card-title-vibrant {
+    @apply text-xl font-semibold bg-gradient-to-r 
+           from-purple-600 to-pink-600 bg-clip-text 
+           text-transparent mb-2 group-hover:from-purple-700 
+           group-hover:to-pink-700 transition-colors;
+  }
+
+  .card-title-nature {
+    @apply text-xl font-semibold bg-gradient-to-r 
+           from-green-600 to-teal-600 bg-clip-text 
+           text-transparent mb-2 group-hover:from-green-700 
+           group-hover:to-teal-700 transition-colors;
+  }
+
+  /* Stat Number Variations */
+  .stat-value-minimal {
+    @apply text-4xl font-bold text-gray-900 mb-1;
+  }
+
+  .stat-value-gradient {
+    @apply text-4xl font-bold;
+    background: linear-gradient(135deg, #2563eb, #06b6d4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .stat-value-colorful {
+    @apply text-4xl font-bold;
+    background: linear-gradient(135deg, #7c3aed, #ec4899, #f97316);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Quote Text Variations */
+  .quote-elegant {
+    @apply text-xl text-gray-700 italic leading-relaxed mb-4
+           border-l-4 border-gray-200 pl-4;
+  }
+
+  .quote-modern {
+    @apply text-xl bg-gradient-to-r from-gray-600 to-gray-500
+           bg-clip-text text-transparent italic leading-relaxed mb-4;
+  }
+
+  .quote-colorful {
+    @apply text-xl bg-gradient-to-r from-purple-600 to-pink-600
+           bg-clip-text text-transparent italic leading-relaxed mb-4;
+  }
+
+  /* Link Variations */
+  .link-underline {
+    @apply text-gray-900 hover:text-primary-600
+           border-b-2 border-primary-200 hover:border-primary-600
+           transition-all duration-200;
+  }
+
+  .link-fade {
+    @apply text-gray-600 hover:text-primary-600
+           transition-colors duration-200;
+  }
+
+  .link-gradient {
+    @apply relative inline-block font-semibold;
+    background: linear-gradient(135deg, #3b82f6, #6366f1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .link-gradient:after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-0.5 rounded-full opacity-0 transition-all duration-300;
+    background: linear-gradient(135deg, #3b82f6, #6366f1);
+  }
+
+  .link-gradient:hover:after {
+    @apply opacity-100;
+  }
+
+  /* List Item Variations */
+  .list-item-accent {
+    @apply text-gray-700 hover:text-primary-600
+           transition-colors duration-200
+           before:content-['→'] before:mr-2 before:text-primary-500;
+  }
+
+  .list-item-minimal {
+    @apply text-gray-600 hover:text-gray-900
+           transition-colors duration-200;
+  }
+
+  .list-item-gradient {
+    @apply bg-gradient-to-r from-gray-700 to-gray-600
+           bg-clip-text text-transparent
+           hover:from-primary-600 hover:to-primary-500
+           transition-colors duration-200;
   }
 }
 
-/* Animation keyframes */
+/* Animation Classes */
+.animate-fade-up {
+  animation: fadeUp 0.5s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -150,92 +411,52 @@
   }
 }
 
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(1rem);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Glass Morphism */
+.glass {
+  @apply bg-white/80 backdrop-blur-lg border border-white/20;
 }
 
-@keyframes scale {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+.glass-dark {
+  @apply bg-gray-900/80 backdrop-blur-lg border border-gray-700/20;
 }
 
-/* Modern component styles */
-@layer components {
-  .btn-primary {
-    @apply bg-primary text-primary-foreground hover:bg-primary/90 font-medium px-5 py-2.5 rounded-md 
-           transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-lg 
-           active:translate-y-0 active:shadow-md;
-  }
-  
-  .btn-secondary {
-    @apply bg-secondary text-secondary-foreground hover:bg-secondary/90 font-medium px-5 py-2.5 rounded-md 
-           transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-lg
-           active:translate-y-0 active:shadow-md;
-  }
-
-  .section {
-    @apply py-16 px-4 sm:px-6 lg:px-8 overflow-hidden;
-  }
-
-  .section-title {
-    @apply text-3xl font-semibold text-center mb-6 relative
-           after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2
-           after:w-20 after:h-1 after:bg-accent/20 after:rounded-full;
-  }
-
-  .section-subtitle {
-    @apply text-lg text-muted-foreground text-center mb-10 max-w-2xl mx-auto;
-  }
-
-  .container-custom {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
-  }
-
-  .card {
-    @apply bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 ease-out
-           hover:-translate-y-1 overflow-hidden border border-gray-100;
-  }
-
-  .card-body {
-    @apply p-6;
-  }
-
-  .form-input {
-    @apply w-full rounded-md border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
-  }
-
-  .form-label {
-    @apply block text-sm font-medium text-foreground mb-1;
-  }
-
-  .input {
-    @apply w-full px-4 py-2 rounded-md border border-gray-200 focus:border-primary
-           focus:ring-2 focus:ring-primary/20 transition-all duration-200
-           placeholder:text-gray-400 text-gray-900;
-  }
-
-  .link {
-    @apply text-primary hover:text-primary/80 transition-colors duration-200
-           underline-offset-4 hover:underline;
-  }
+/* Modern Gradients */
+.bg-gradient-primary {
+  @apply bg-gradient-to-r from-primary-500 via-primary-400 to-primary-600;
 }
 
-/* Improved scrollbar */
+.bg-gradient-cool {
+  @apply bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500;
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-primary-600;
+}
+
+/* Hover Effects */
+.hover-lift {
+  @apply transition-transform duration-300 ease-out hover:-translate-y-1;
+}
+
+.hover-scale {
+  @apply transition-transform duration-300 ease-out hover:scale-105;
+}
+
+/* Shadows */
+.shadow-soft {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05), 
+              0 4px 8px rgba(0,0,0,0.05);
+}
+
+.shadow-soft-lg {
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05), 
+              0 10px 15px rgba(0,0,0,0.1);
+}
+
+/* Scrollbar */
 ::-webkit-scrollbar {
-  @apply w-2;
+  width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -246,29 +467,22 @@
   @apply bg-gray-300 rounded-full hover:bg-gray-400 transition-colors;
 }
 
-/* Focus styles */
-:focus-visible {
-  @apply outline-none ring-2 ring-primary/50 ring-offset-2 transition-shadow duration-200;
+@layer utilities {
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
 }
 
-/* Selection styles */
-::selection {
-  @apply bg-primary/20 text-primary-900;
-}
-
-/* Page transitions */
-.page-enter {
-  @apply opacity-0 translate-y-2;
-}
-
-.page-enter-active {
-  @apply opacity-100 translate-y-0 transition-all duration-300 ease-out;
-}
-
-.page-exit {
-  @apply opacity-100;
-}
-
-.page-exit-active {
-  @apply opacity-0 -translate-y-2 transition-all duration-300 ease-out;
+/* Force white text utility class */
+.force-white-text {
+  color: white !important;
+  -webkit-text-fill-color: white !important;
+  background: none !important;
+  background-image: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
 }

@@ -1,7 +1,8 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
-import Footer from '@/components/Footer';
+import { ReactNode } from 'react';
+import { Navigation } from './Navigation';
+import { Footer } from '@/components/Footer';
 
 export default function LayoutWrapper({
   children,

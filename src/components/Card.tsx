@@ -1,41 +1,90 @@
 'use client';
 
+import { motion } from 'framer-motion';
 import Image from 'next/image';
-import Link from 'next/link';
+import { scaleIn } from '@/lib/animations';
 
 interface CardProps {
   title: string;
-  description: string;
-  imageUrl: string;
-  link: string;
+  description?: string;
+  image?: string;
+  link?: string;
+  index?: number;
+  icon?: React.ReactNode;
+  className?: string;
+  variant?: string;
+  style?: React.CSSProperties;
+  children?: React.ReactNode;
 }
 
-const Card = ({ title, description, imageUrl, link }: CardProps) => {
+export function Card({ 
+  title, 
+  description, 
+  image, 
+  link, 
+  index = 0, 
+  icon,
+  className = "",
+  variant,
+  style,
+  children
+}: CardProps) {
   return (
-    <div className="bg-white rounded-lg shadow-lg overflow-hidden border border-primary-200 hover:border-accent transition-colors">
-      <div className="relative h-48">
-        <Image
-          src={imageUrl}
-          alt={title}
-          fill
-          className="object-cover"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          priority={false}
-          loading="lazy"
-        />
-      </div>
-      <div className="p-6">
-        <h3 className="text-xl font-semibold text-primary mb-2">{title}</h3>
-        <p className="text-primary/80 mb-4">{description}</p>
-        <Link
-          href={link}
-          className="inline-block bg-accent text-white px-4 py-2 rounded-md hover:bg-accent-700 transition-colors"
-        >
-          Learn More
-        </Link>
-      </div>
-    </div>
-  );
-};
+    <motion.div
+      variants={scaleIn}
+      initial="initial"
+      whileInView="animate"
+      viewport={{ once: true, margin: '-50px' }}
+      className={`group relative overflow-hidden rounded-xl p-6 ${className}`}
+      style={style}
+    >
+      {icon && (
+        <div className="mb-4">
+          {icon}
+        </div>
+      )}
+      
+      {image && (
+        <div className="aspect-w-16 aspect-h-9 relative overflow-hidden rounded-lg mb-4">
+          <Image
+            src={image}
+            alt={title}
+            fill
+            className="object-cover transform group-hover:scale-110 transition-transform duration-700"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        </div>
+      )}
 
-export default Card; 
+      <motion.div 
+        initial={{ y: 20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: index * 0.1 }}
+      >
+        {children}
+        {link && (
+          <motion.a
+            href={link}
+            whileHover={{ x: 5 }}
+            className="mt-4 inline-flex items-center text-[#0A192F] font-medium hover:text-[#112240] group-hover:text-white"
+          >
+            Learn more
+            <svg
+              className="ml-2 h-4 w-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </motion.a>
+        )}
+      </motion.div>
+    </motion.div>
+  );
+} 

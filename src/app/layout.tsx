@@ -1,22 +1,31 @@
+'use client';
+
+import { Navbar } from '@/components/Navbar';
+import { Footer } from '@/components/Footer';
+import { motion, AnimatePresence } from 'framer-motion';
 import './globals.css';
-import { Inter, Poppins } from 'next/font/google';
-import { theme } from '@/styles/theme';
-import Navigation from './components/Navigation';
 
-const inter = Inter({ 
-  subsets: ['latin'],
-  variable: '--font-sans',
-});
-
-const poppins = Poppins({
-  weight: ['400', '500', '600', '700'],
-  subsets: ['latin'],
-  variable: '--font-display',
-});
-
-export const metadata = {
-  title: 'FGS School - Excellence in Education',
-  description: 'Discover a world-class education that prepares you for success in today\'s rapidly evolving world.',
+const pageVariants = {
+  initial: {
+    opacity: 0,
+    y: 20,
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.4,
+      ease: 'easeOut',
+    },
+  },
+  exit: {
+    opacity: 0,
+    y: -20,
+    transition: {
+      duration: 0.3,
+      ease: 'easeIn',
+    },
+  },
 };
 
 export default function RootLayout({
@@ -25,18 +34,34 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
-      <head>
-        <style dangerouslySetInnerHTML={{ __html: theme.keyframes }} />
-      </head>
-      <body className="font-sans antialiased">
-        <div className="min-h-screen flex flex-col">
-          <Navigation />
-          <main className="flex-grow">
+    <html lang="en" className="scroll-smooth">
+      <body className="min-h-screen bg-white text-gray-900 flex flex-col">
+        <Navbar />
+
+        {/* Main Content */}
+        <AnimatePresence mode="wait">
+          <motion.main
+            variants={pageVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            className="flex-grow"
+          >
             {children}
-          </main>
+          </motion.main>
+        </AnimatePresence>
+
+        {/* Footer */}
+        <Footer />
+
+        {/* Global Background Elements */}
+        <div className="fixed inset-0 pointer-events-none">
+          {/* Top-right gradient blob */}
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl opacity-50 mix-blend-multiply" />
+          
+          {/* Bottom-left gradient blob */}
+          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-secondary/5 rounded-full blur-3xl opacity-50 mix-blend-multiply" />
         </div>
-        <div id="modal-root" />
       </body>
     </html>
   );

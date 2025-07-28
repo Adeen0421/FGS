@@ -1,4 +1,4 @@
-import GalleryGrid from '@/components/GalleryGrid';
+import { GalleryGrid } from '@/components/GalleryGrid';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { type Event } from '@/types/gallery';

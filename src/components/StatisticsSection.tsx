@@ -1,88 +1,83 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { DynamicIcon } from 'lucide-react/dynamic';
-import { IconName } from '@/types/icons';
+import { useCountAnimation } from '@/hooks/useCountAnimation';
 
-interface Statistic {
-  icon: IconName;
-  value: string;
-  label: string;
-  prefix?: string;
+interface StatProps {
+  value: number;
   suffix?: string;
+  label: string;
+  description: string;
 }
 
-const statistics: Statistic[] = [
+const stats: StatProps[] = [
   {
-    icon: 'users',
-    value: '1000',
-    label: 'Students Enrolled',
-    suffix: '+'
+    value: 1200,
+    suffix: '+',
+    label: 'Students',
+    description: 'Active learners in our community'
   },
   {
-    icon: 'award',
-    value: '95',
+    value: 80,
+    suffix: '+',
+    label: 'Teachers',
+    description: 'Expert educators and mentors'
+  },
+  {
+    value: 25,
+    suffix: '+',
+    label: 'Years',
+    description: 'Of educational excellence'
+  },
+  {
+    value: 98,
+    suffix: '%',
     label: 'Success Rate',
-    suffix: '%'
-  },
-  {
-    icon: 'graduation-cap',
-    value: '50',
-    label: 'Expert Teachers',
-    suffix: '+'
-  },
-  {
-    icon: 'book',
-    value: '100',
-    label: 'Courses Offered',
-    suffix: '+'
+    description: 'In academic achievements'
   }
 ];
 
-export default function StatisticsSection() {
+function StatCard({ value, suffix = '', label, description }: StatProps) {
+  const { count, ref } = useCountAnimation(value);
+
   return (
-    <section className="bg-white py-24">
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300"
+    >
+      <h3 className="stat-value-gradient mb-2">
+        {count}{suffix}
+      </h3>
+      <p className="text-gradient-ocean font-semibold mb-1">{label}</p>
+      <p className="text-gray-600">{description}</p>
+    </motion.div>
+  );
+}
+
+export function StatisticsSection() {
+  return (
+    <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Our Impact in Numbers
-          </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            We take pride in our achievements and the success of our students.
-            Here's a glimpse of our journey in numbers.
+          <h2 className="text-header-tech mb-4">Our Impact in Numbers</h2>
+          <p className="text-gradient-ocean text-lg max-w-2xl mx-auto">
+            Measuring our success through meaningful achievements and continuous growth
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {statistics.map((stat, index) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white rounded-xl p-6 shadow-soft text-center transform hover:scale-105 transition-transform duration-300"
-            >
-              <div className="flex justify-center mb-4">
-                <div className="bg-primary-50 p-3 rounded-full">
-                  <DynamicIcon name={stat.icon} className="w-8 h-8 text-primary-600" />
-                </div>
-              </div>
-              <div className="space-y-2">
-                <div className="text-4xl font-bold text-gray-900">
-                  {stat.prefix}{stat.value}{stat.suffix}
-                </div>
-                <div className="text-gray-600 font-medium">
-                  {stat.label}
-                </div>
-              </div>
-            </motion.div>
+          {stats.map((stat, index) => (
+            <StatCard key={stat.label} {...stat} />
           ))}
         </div>
       </div>

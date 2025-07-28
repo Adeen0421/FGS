@@ -1,5 +1,5 @@
 import { client } from '@/sanity/lib/client';
-import GalleryGrid from '@/components/GalleryGrid';
+import { GalleryGrid } from '@/components/GalleryGrid';
 
 async function getEvents() {
   const query = `*[_type == "event"] {
