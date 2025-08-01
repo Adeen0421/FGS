@@ -2,93 +2,38 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { client } from '@/sanity/lib/client';
 import { GalleryGrid } from '@/components/GalleryGrid';
 
-// Fallback data when Sanity is not configured
-const fallbackEvents = [
-  {
-    _id: '1',
-    title: 'Sports Day Celebration',
-    date: '2024-06-15',
-    description: 'Annual sports day with exciting competitions and team spirit',
-    category: 'Sports',
-    mainImage: {
-      url: '/campus_highlight.jpg',
-      metadata: { dimensions: { width: 800, height: 600 } }
-    }
-  },
-  {
-    _id: '2',
-    title: 'Science Fair Exhibition',
-    date: '2024-06-10',
-    description: 'Students showcase innovative projects and scientific discoveries',
-    category: 'Academic',
-    mainImage: {
-      url: '/images/features/modern-facilities.jpg',
-      metadata: { dimensions: { width: 800, height: 600 } }
-    }
-  },
-  {
-    _id: '3',
-    title: 'Cultural Festival',
-    date: '2024-06-05',
-    description: 'Celebrating diversity through music, dance, and art performances',
-    category: 'Cultural',
-    mainImage: {
-      url: '/images/features/expert-faculty.jpg',
-      metadata: { dimensions: { width: 800, height: 600 } }
-    }
-  },
-  {
-    _id: '4',
-    title: 'Academic Achievement Ceremony',
-    date: '2024-06-01',
-    description: 'Recognizing outstanding academic performance and achievements',
-    category: 'Academic',
-    mainImage: {
-      url: '/images/features/personalized-learning.jpg',
-      metadata: { dimensions: { width: 800, height: 600 } }
-    }
-  }
-];
-
 async function getEvents() {
-  try {
-    // Try to import and use Sanity client
-    const { client } = await import('@/sanity/lib/client');
-    
-    const query = `*[_type == "event"] {
+  const query = `*[_type == "event"] {
+    _id,
+    title,
+    date,
+    description,
+    category,
+    "mainImage": mainImage.asset->{
       _id,
-      title,
-      date,
-      description,
-      category,
-      "mainImage": mainImage.asset->{
+      url,
+      metadata {
+        dimensions
+      }
+    },
+    "gallery": gallery[]{
+      "asset": asset->{
         _id,
         url,
         metadata {
           dimensions
         }
       },
-      "gallery": gallery[]{
-        "asset": asset->{
-          _id,
-          url,
-          metadata {
-            dimensions
-          }
-        },
-        caption,
-        alt
-      }
-    }`;
+      caption,
+      alt
+    }
+  }`;
 
-    const events = await client.fetch(query);
-    return events;
-  } catch (error) {
-    console.log('Sanity not configured, using fallback data:', error);
-    return fallbackEvents;
-  }
+  const events = await client.fetch(query);
+  return events;
 }
 
 export default async function GalleryPage() {
