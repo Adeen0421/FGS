@@ -251,27 +251,3 @@ export default function Contact() {
     </div>
   )
 } 
-                  </Button>
-                </form>
-              </Card>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      <Footer />
-    </div>
-  )
-} 
-                  </Button>
-                </form>
-              </Card>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      <Footer />
-    </div>
-  )
-} 
