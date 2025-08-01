@@ -75,7 +75,7 @@ export default function Admissions() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
           <h1 className="text-5xl font-bold mb-6">Admissions</h1>
           <p className="text-xl max-w-2xl">
-            Take the first step towards joining our vibrant academic community. We're excited to welcome new students who are eager to learn and grow.
+            Take the first step towards joining our vibrant academic community. We&apos;re excited to welcome new students who are eager to learn and grow.
           </p>
         </div>
       </section>

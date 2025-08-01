@@ -119,7 +119,7 @@ export default function Contact() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
           <h1 className="text-5xl font-bold mb-6">Contact Us</h1>
           <p className="text-xl max-w-2xl">
-            Have questions? We'd love to hear from you. Send us a message and we'll
+            Have questions? We&apos;d love to hear from you. Send us a message and we&apos;ll
             respond as soon as possible.
           </p>
         </div>
