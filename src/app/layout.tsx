@@ -2,7 +2,7 @@
 
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, easeIn, easeOut } from 'framer-motion';
 import './globals.css';
 
 const pageVariants = {
@@ -15,7 +15,7 @@ const pageVariants = {
     y: 0,
     transition: {
       duration: 0.4,
-      ease: 'easeOut',
+      ease: easeOut,
     },
   },
   exit: {
@@ -23,7 +23,7 @@ const pageVariants = {
     y: -20,
     transition: {
       duration: 0.3,
-      ease: 'easeIn',
+      ease: easeIn,
     },
   },
 };
