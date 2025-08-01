@@ -41,9 +41,7 @@ export default function Admissions() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission
     console.log('Form submitted:', formData)
-    // Reset form
     setFormData({
       firstName: '',
       lastName: '',
@@ -72,7 +70,6 @@ export default function Admissions() {
             src="/admission-image.jpg"
             alt="Admissions Hero"
             className="object-cover w-full h-full brightness-50"
-            style={{ objectFit: 'cover', width: '100%', height: '100%' }}
           />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
@@ -109,17 +106,14 @@ export default function Admissions() {
       {/* Application Form */}
       <section className="py-16">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card className="bg-white border-2 border-[#0A192F]/20 rounded-2xl p-8 shadow-lg">
+          <Card title="Application Form" className="bg-white border-2 border-[#0A192F]/20 rounded-2xl p-8 shadow-lg">
             <h2 className="text-2xl font-bold text-[#0A192F] mb-8">
               Application Form
             </h2>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label
-                    htmlFor="firstName"
-                    className="block text-sm font-medium text-[#0A192F] mb-2"
-                  >
+                  <label htmlFor="firstName" className="block text-sm font-medium text-[#0A192F] mb-2">
                     First Name
                   </label>
                   <input
@@ -133,10 +127,7 @@ export default function Admissions() {
                   />
                 </div>
                 <div>
-                  <label
-                    htmlFor="lastName"
-                    className="block text-sm font-medium text-[#0A192F] mb-2"
-                  >
+                  <label htmlFor="lastName" className="block text-sm font-medium text-[#0A192F] mb-2">
                     Last Name
                   </label>
                   <input
@@ -153,10 +144,7 @@ export default function Admissions() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium text-[#0A192F] mb-2"
-                  >
+                  <label htmlFor="email" className="block text-sm font-medium text-[#0A192F] mb-2">
                     Email
                   </label>
                   <input
@@ -170,10 +158,7 @@ export default function Admissions() {
                   />
                 </div>
                 <div>
-                  <label
-                    htmlFor="phone"
-                    className="block text-sm font-medium text-[#0A192F] mb-2"
-                  >
+                  <label htmlFor="phone" className="block text-sm font-medium text-[#0A192F] mb-2">
                     Phone
                   </label>
                   <input
@@ -190,10 +175,7 @@ export default function Admissions() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label
-                    htmlFor="grade"
-                    className="block text-sm font-medium text-[#0A192F] mb-2"
-                  >
+                  <label htmlFor="grade" className="block text-sm font-medium text-[#0A192F] mb-2">
                     Grade Applying For
                   </label>
                   <select
@@ -213,10 +195,7 @@ export default function Admissions() {
                   </select>
                 </div>
                 <div>
-                  <label
-                    htmlFor="previousSchool"
-                    className="block text-sm font-medium text-[#0A192F] mb-2"
-                  >
+                  <label htmlFor="previousSchool" className="block text-sm font-medium text-[#0A192F] mb-2">
                     Previous School
                   </label>
                   <input
@@ -232,10 +211,7 @@ export default function Admissions() {
               </div>
 
               <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium text-[#0A192F] mb-2"
-                >
+                <label htmlFor="message" className="block text-sm font-medium text-[#0A192F] mb-2">
                   Additional Information
                 </label>
                 <textarea
@@ -259,18 +235,4 @@ export default function Admissions() {
       <Footer />
     </div>
   )
-} 
-        </div>
-      </section>
-
-      <Footer />
-    </div>
-  )
-} 
-        </div>
-      </section>
-
-      <Footer />
-    </div>
-  )
-} 
+}

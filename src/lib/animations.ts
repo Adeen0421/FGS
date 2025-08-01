@@ -19,6 +19,21 @@ export const fadeIn = (direction: 'up' | 'down' | 'left' | 'right'): Variants =>
   };
 };
 
+export const scaleIn: Variants = {
+  initial: {
+    opacity: 0,
+    scale: 0.95,
+  },
+  animate: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.5,
+      ease: 'easeOut',
+    },
+  },
+};
+
 export const staggerContainer: Variants = {
   hidden: {},
   visible: {
