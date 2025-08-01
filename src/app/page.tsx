@@ -2,8 +2,6 @@
 
 import { useState, useEffect } from 'react'
 import { Button } from '@/components/Button'
-import { Card } from '@/components/Card'
-import { StatCard } from '@/components/StatCard'
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
@@ -105,15 +103,6 @@ const galleryImages = [
 ]
 
 export default function Home() {
-  const [scrolled, setScrolled] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
 
   return (
     <div className="min-h-screen bg-primary-50">

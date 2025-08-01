@@ -19,13 +19,11 @@ interface CardProps {
 
 export function Card({ 
   title, 
-  description, 
   image, 
   link, 
   index = 0, 
   icon,
   className = "",
-  variant,
   style,
   children
 }: CardProps) {
