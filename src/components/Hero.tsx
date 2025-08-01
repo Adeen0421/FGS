@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Button } from './Button';
 
 export function Hero() {
@@ -53,19 +54,21 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <Button 
-              href="/admissions"
-              className="bg-white text-gray-900 hover:bg-gray-100"
+            <Link href="/admissions">
+              <Button 
+                className="bg-white text-gray-900 hover:bg-gray-100"
+                >
+                  Apply Now
+              </Button>
+            </Link>
+            <Link href="/about">
+              <Button 
+                variant="outline"
+                className="text-white border-white hover:bg-white/10"
               >
-                Apply Now
-            </Button>
-            <Button 
-              href="/about"
-              variant="outline"
-              className="text-white border-white hover:bg-white/10"
-            >
-              Learn More
-            </Button>
+                Learn More
+              </Button>
+            </Link>
           </motion.div>
 
           {/* Scroll Indicator */}
