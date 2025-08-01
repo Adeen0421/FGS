@@ -166,7 +166,7 @@ export default function Contact() {
               viewport={{ once: true }}
               className="lg:col-span-2"
             >
-              <Card className="bg-white border-2 border-[#0A192F] rounded-2xl p-8 shadow-soft-lg">
+              <Card title="Contact Form" className="bg-white border-2 border-[#0A192F] rounded-2xl p-8 shadow-soft-lg">
                 <h2 className="section-title text-[#0A192F] mb-8">Send us a Message</h2>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
