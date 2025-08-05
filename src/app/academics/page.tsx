@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import { motion } from 'framer-motion';
 import { BookOpen, Star, FileCode, Globe, Calculator, Beaker, Palette, Music, BookMarked, Brain } from 'lucide-react';
 import Image from 'next/image';
