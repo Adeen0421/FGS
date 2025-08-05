@@ -1,16 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
-import { createClient } from '@sanity/client';
-
-const client = createClient({
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
-  apiVersion: '2024-01-01',
-  token: process.env.NEXT_PUBLIC_SANITY_TOKEN,
-  useCdn: false,
-});
 
 interface ParentInfo {
   name: string;
@@ -55,6 +46,7 @@ interface FormData {
 export default function ApplicationForm() {
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formError, setFormError] = useState<string | null>(null);
   const [formData, setFormData] = useState<FormData>({
     studentName: '',
     dateOfBirth: '',
@@ -73,7 +65,11 @@ export default function ApplicationForm() {
       grade: '',
     },
     documents: {},
-    additionalInfo: {},
+    additionalInfo: {
+      specialNeeds: '',
+      medicalConditions: '',
+      allergies: ''
+    },
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -105,51 +101,49 @@ export default function ApplicationForm() {
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setFormError(null);
 
     try {
-      // Upload documents to Sanity
-      const uploadedDocs = {} as any;
-      for (const [key, file] of Object.entries(formData.documents)) {
-        if (file) {
-          const fileData = new FormData();
-          fileData.append('file', file);
-          const response = await fetch(
-            `https://${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}.api.sanity.io/v2021-06-07/assets/files/${process.env.NEXT_PUBLIC_SANITY_DATASET}`,
-            {
-              method: 'POST',
-              headers: {
-                Authorization: `Bearer ${process.env.NEXT_PUBLIC_SANITY_TOKEN}`,
-              },
-              body: fileData,
-            }
-          );
-          const data = await response.json();
-          uploadedDocs[key] = {
-            _type: 'file',
-            asset: {
-              _type: 'reference',
-              _ref: data.document._id,
-            },
-          };
+      // Create a FormData object
+      const formDataToSend = new FormData();
+      
+      // Add student info
+      formDataToSend.append('studentName', String(formData.studentName));
+      formDataToSend.append('dateOfBirth', String(formData.dateOfBirth));
+      formDataToSend.append('gradeApplyingFor', String(formData.gradeApplyingFor));
+      formDataToSend.append('gender', String(formData.gender));
+      
+      // Add parent info
+      Object.entries(formData.parentInfo || {}).forEach(([key, value]) => {
+        formDataToSend.append(`parentInfo[${key}]`, String(value));
+      });
+      
+      // Add current school info
+      Object.entries(formData.currentSchool || {}).forEach(([key, value]) => {
+        formDataToSend.append(`currentSchool[${key}]`, String(value));
+      });
+      
+      // Add documents
+      Object.entries(formData.documents || {}).forEach(([key, file]) => {
+        if (file instanceof File) {
+          formDataToSend.append(`documents[${key}]`, file);
         }
+      });
+      
+      // Add additional info
+      if (formData.additionalInfo) {
+        formDataToSend.append('additionalInfo', JSON.stringify(formData.additionalInfo));
       }
-
-      // Create application document in Sanity
-      await client.create({
-        _type: 'studentApplication',
-        studentName: formData.studentName,
-        dateOfBirth: formData.dateOfBirth,
-        gradeApplyingFor: formData.gradeApplyingFor,
-        gender: formData.gender,
-        parentInfo: formData.parentInfo,
-        currentSchool: formData.currentSchool,
-        documents: uploadedDocs,
-        additionalInfo: formData.additionalInfo,
-        status: 'submitted',
-        submittedAt: new Date().toISOString(),
+      
+      formDataToSend.append('submittedAt', new Date().toISOString());
+      
+      // Send the application data to your API endpoint
+      const response = await fetch('/api/submit-application', {
+        method: 'POST',
+        body: formDataToSend,
       });
 
       // Redirect to success page

@@ -2,42 +2,47 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { client } from '@/sanity/lib/client';
 import { GalleryGrid } from '@/components/GalleryGrid';
+import { Event } from '@/types/gallery';
 
-async function getEvents() {
-  const query = `*[_type == "event"] {
-    _id,
-    title,
-    date,
-    description,
-    category,
-    "mainImage": mainImage.asset->{
-      _id,
-      url,
-      metadata {
-        dimensions
+export default function GalleryPage() {
+  // Static gallery data
+  const events: Event[] = [
+    {
+      _id: '1',
+      title: 'School Art Exhibition',
+      date: '2025-07-15',
+      description: 'Annual art exhibition showcasing student creativity',
+      category: 'arts',
+      mainImage: {
+        _id: 'art-studio-1',
+        url: '/gallery/art-studio.jpg',
+        metadata: {
+          dimensions: {
+            width: 1920,
+            height: 1080
+          }
+        }
       }
     },
-    "gallery": gallery[]{
-      "asset": asset->{
-        _id,
-        url,
-        metadata {
-          dimensions
+    {
+      _id: '2',
+      title: 'Science Fair 2025',
+      date: '2025-08-20',
+      description: 'Annual science fair highlighting student projects',
+      category: 'science',
+      mainImage: {
+        _id: 'chemistry-lab-1',
+        url: '/gallery/chemistry-lab.jpg',
+        metadata: {
+          dimensions: {
+            width: 1920,
+            height: 1080
+          }
         }
-      },
-      caption,
-      alt
+      }
     }
-  }`;
-
-  const events = await client.fetch(query);
-  return events;
-}
-
-export default async function GalleryPage() {
-  const events = await getEvents();
+  ];
 
   return (
     <main className="min-h-screen bg-white">
@@ -108,4 +113,4 @@ export default async function GalleryPage() {
       </section>
     </main>
   );
-} 
+}

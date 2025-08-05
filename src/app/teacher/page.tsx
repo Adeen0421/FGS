@@ -1,16 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
-import { createClient } from '@sanity/client';
-
-const client = createClient({
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
-  apiVersion: '2024-01-01',
-  token: process.env.NEXT_PUBLIC_SANITY_TOKEN,
-  useCdn: false,
-});
 
 export default function TeacherApplication() {
   const router = useRouter();
@@ -44,40 +35,42 @@ export default function TeacherApplication() {
     setIsSubmitting(true);
 
     try {
-      // Upload CV file to Sanity
-      let cvAsset = null;
+      // Create FormData object
+      const formDataToSend = new FormData();
+      
+      // Add basic info
+      formDataToSend.append('fullName', formData.fullName);
+      formDataToSend.append('email', formData.email);
+      formDataToSend.append('phone', formData.phone);
+      formDataToSend.append('subject', formData.subject);
+      formDataToSend.append('experience', formData.experience);
+      formDataToSend.append('coverLetter', formData.coverLetter);
+      
+      // Add education info
+      formDataToSend.append('education', JSON.stringify(formData.education.map(edu => ({
+        degree: edu.degree,
+        institution: edu.institution,
+        year: edu.year,
+      }))));
+      
+      // Add CV file if present
       if (formData.cv) {
-        const cvData = new FormData();
-        cvData.append('file', formData.cv);
-        const response = await fetch(`https://${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}.api.sanity.io/v2021-06-07/assets/files/${process.env.NEXT_PUBLIC_SANITY_DATASET}`, {
-          method: 'POST',
-          headers: {
-            Authorization: `Bearer ${process.env.NEXT_PUBLIC_SANITY_TOKEN}`,
-          },
-          body: cvData,
-        });
-        const data = await response.json();
-        cvAsset = { _type: 'file', asset: { _type: 'reference', _ref: data.document._id } };
+        formDataToSend.append('cv', formData.cv);
       }
+      
+      // Add submission metadata
+      formDataToSend.append('submittedAt', new Date().toISOString());
+      formDataToSend.append('status', 'new');
 
-      // Create teacher application document
-      await client.create({
-        _type: 'teacherApplication',
-        fullName: formData.fullName,
-        email: formData.email,
-        phone: formData.phone,
-        subject: formData.subject,
-        experience: parseInt(formData.experience),
-        education: formData.education.map(edu => ({
-          degree: edu.degree,
-          institution: edu.institution,
-          year: parseInt(edu.year),
-        })),
-        cv: cvAsset,
-        coverLetter: formData.coverLetter,
-        submittedAt: new Date().toISOString(),
-        status: 'new',
+      // Send to API
+      const response = await fetch('/api/submit-teacher-application', {
+        method: 'POST',
+        body: formDataToSend,
       });
+      
+      if (!response.ok) {
+        throw new Error('Failed to submit application');
+      }
 
       // Redirect to success page
       router.push('/teacher/success');
@@ -268,4 +261,4 @@ export default function TeacherApplication() {
       </div>
     </div>
   );
-} 
+}

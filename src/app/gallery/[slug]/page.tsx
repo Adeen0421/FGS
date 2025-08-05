@@ -5,27 +5,22 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Calendar, ArrowLeft, ChevronLeft, ChevronRight, X } from 'lucide-react';
-import { client } from '@/lib/sanity';
-import { urlFor } from '@/lib/sanity';
 
-type SanityImage = {
-  _type: 'image';
-  asset: {
-    _ref: string;
-  };
+type GalleryImage = {
+  url: string;
   caption?: string;
   alt?: string;
+  width: number;
+  height: number;
 };
 
 type GalleryItem = {
-  _id: string;
+  id: string;
   title: string;
-  slug: {
-    current: string;
-  };
+  slug: string;
   description?: string;
   eventDate?: string;
-  images: SanityImage[];
+  images: GalleryImage[];
   category: string;
 };
 
@@ -41,33 +36,31 @@ export default function GalleryItemPage({ params }: PageProps) {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  useEffect(() => {
-    async function fetchGalleryItem() {
-      try {
-        const data = await client.fetch(`
-          *[_type == "gallery" && slug.current == $slug][0] {
-            _id,
-            title,
-            slug,
-            description,
-            eventDate,
-            images,
-            category
-          }
-        `, { slug: params.slug });
-        
-        if (data) {
-          setGalleryItem(data);
+  useState(() => {
+    // Mock data - replace with your actual static data
+    const mockGalleryItem: GalleryItem = {
+      id: '1',
+      title: 'Art Exhibition',
+      slug: params.slug,
+      description: 'Annual student art exhibition',
+      eventDate: '2025-08-15',
+      category: 'arts',
+      images: [
+        {
+          url: '/gallery/art-studio.jpg',
+          caption: 'Art Studio',
+          alt: 'Students working in art studio',
+          width: 800,
+          height: 600
         }
-        setIsLoading(false);
-      } catch (error) {
-        console.error('Error fetching gallery:', error);
-        setIsLoading(false);
-      }
-    }
+      ]
+    };
 
-    fetchGalleryItem();
-  }, [params.slug]);
+    if (mockGalleryItem.slug === params.slug) {
+      setGalleryItem(mockGalleryItem);
+    }
+    setIsLoading(false);
+  });
 
   const openLightbox = (index: number) => {
     setCurrentImageIndex(index);
@@ -192,7 +185,7 @@ export default function GalleryItemPage({ params }: PageProps) {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {galleryItem.images.map((image, index) => (
               <motion.div
-                key={image.asset._ref}
+                key={index}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
@@ -200,9 +193,10 @@ export default function GalleryItemPage({ params }: PageProps) {
                 onClick={() => openLightbox(index)}
               >
                 <Image
-                  src={urlFor(image).width(800).height(600).url()}
+                  src={image.url}
                   alt={image.alt || ''}
-                  fill
+                  width={image.width}
+                  height={image.height}
                   className="object-cover rounded-lg transition-transform group-hover:scale-105"
                 />
                 {image.caption && (
@@ -235,10 +229,11 @@ export default function GalleryItemPage({ params }: PageProps) {
           
           <div className="relative w-full h-full max-w-4xl max-h-[80vh] mx-auto">
             <Image
-              src={urlFor(galleryItem.images[currentImageIndex]).width(1200).url()}
+              src={galleryItem.images[currentImageIndex].url}
               alt={galleryItem.images[currentImageIndex].alt || ''}
-              fill
-              className="object-contain"
+              width={1200}
+              height={900}
+              className="object-contain w-full h-full"
             />
             {galleryItem.images[currentImageIndex].caption && (
               <div className="absolute bottom-0 left-0 right-0 p-4 text-center bg-black bg-opacity-50">

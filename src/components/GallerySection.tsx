@@ -1,28 +1,61 @@
-import { client } from '@/sanity/lib/client';
 import { GalleryGrid } from './GalleryGrid';
 
-async function getEvents() {
-  const query = `*[_type == "event"] {
-    _id,
-    title,
-    date,
-    description,
-    category,
-    "mainImage": mainImage.asset->{
-      _id,
-      url,
-      metadata {
-        dimensions
+const staticEvents = [
+  {
+    _id: '1',
+    title: 'Art Exhibition',
+    date: '2025-08-15',
+    description: 'Annual student art exhibition',
+    category: 'arts',
+    mainImage: {
+      _id: 'art-studio-1',
+      url: '/gallery/art-studio.jpg',
+      metadata: {
+        dimensions: {
+          width: 1200,
+          height: 800
+        }
       }
     }
-  }`;
+  },
+  {
+    _id: '2',
+    title: 'Sports Day',
+    date: '2025-09-01',
+    description: 'Annual sports competition',
+    category: 'sports',
+    mainImage: {
+      _id: 'sports-1',
+      url: '/gallery/SPORTS.jpg',
+      metadata: {
+        dimensions: {
+          width: 1200,
+          height: 800
+        }
+      }
+    }
+  },
+  {
+    _id: '3',
+    title: 'Science Fair',
+    date: '2025-09-15',
+    description: 'Student science projects showcase',
+    category: 'science',
+    mainImage: {
+      _id: 'science-1',
+      url: '/gallery/chemistry-lab.jpg',
+      metadata: {
+        dimensions: {
+          width: 1200,
+          height: 800
+        }
+      }
+    }
+  }
+];
 
-  const events = await client.fetch(query);
-  return events;
-}
-
-export default async function GallerySection() {
-  const events = await getEvents();
+export default function GallerySection() {
+  const events = staticEvents;
   
   return (
     <section className="py-20 bg-white">
