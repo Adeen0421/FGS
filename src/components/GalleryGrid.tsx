@@ -26,7 +26,7 @@ export function GalleryGrid({ events, limit }: GalleryGridProps) {
 
   return (
     <>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
         {sortedEvents.map((event) => (
           <div 
             key={event._id} 
@@ -39,17 +39,17 @@ export function GalleryGrid({ events, limit }: GalleryGridProps) {
                 alt={event.title}
                 fill
                 className="object-cover rounded-t-lg"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
               />
             </div>
-            <div className="p-4">
-              <h3 className="text-lg font-semibold mb-1 line-clamp-1">{event.title}</h3>
-              <p className="text-gray-600 text-xs mb-2">{new Date(event.date).toLocaleDateString('en-US', {
+            <div className="p-2 md:p-4">
+              <h3 className="text-base md:text-lg font-semibold mb-1 line-clamp-1">{event.title}</h3>
+              <p className="text-gray-600 text-[10px] md:text-xs mb-1 md:mb-2">{new Date(event.date).toLocaleDateString('en-US', {
                 year: 'numeric',
                 month: 'long',
                 day: 'numeric'
               })}</p>
-              <p className="text-gray-700 text-sm line-clamp-2">{event.description}</p>
+              <p className="text-gray-700 text-xs md:text-sm line-clamp-2">{event.description}</p>
             </div>
           </div>
         ))}
