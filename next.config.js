@@ -9,10 +9,7 @@ const nextConfig = {
       },
     ],
   },
-  // Configure Sanity Studio
-  experimental: {
-    appDir: true,
-  },
+  // Since Next.js 13.4, the app directory is stable and no longer requires experimental flag
   typescript: {
     // Set this to false if you want production builds to abort if there's type errors
     ignoreBuildErrors: process.env.VERCEL_ENV === 'production',
