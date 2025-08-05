@@ -35,7 +35,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className="min-h-screen bg-white text-gray-900 flex flex-col">
+      <body className="min-h-screen bg-white text-gray-900 flex flex-col w-full overflow-x-hidden m-0 p-0">
         <Navbar />
 
         {/* Main Content */}
@@ -45,9 +45,11 @@ export default function RootLayout({
             initial="initial"
             animate="animate"
             exit="exit"
-            className="flex-grow"
+            className="flex-grow w-full overflow-x-hidden"
           >
-            {children}
+            <div className="w-full overflow-x-hidden">
+              {children}
+            </div>
           </motion.main>
         </AnimatePresence>
 

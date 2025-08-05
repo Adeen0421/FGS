@@ -26,34 +26,36 @@ export function GalleryGrid({ events, limit }: GalleryGridProps) {
 
   return (
     <>
-      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3 md:gap-4 px-2 sm:px-4">
+      <div className="w-full">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3 md:gap-4">
           {sortedEvents.map((event) => (
             <div 
               key={event._id} 
               className="bg-white rounded shadow hover:shadow-md transition-all duration-300 cursor-pointer w-full text-left"
               onClick={() => handleImageClick(event)}
             >
-            <div className="relative aspect-[4/3] w-full">
-              <Image
-                src={event.mainImage.url}
-                alt={event.title}
-                fill
-                className="object-cover rounded-t-lg"
-                sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 25vw"
-                priority
-              />
+              <div className="relative aspect-[4/3] w-full">
+                <Image
+                  src={event.mainImage.url}
+                  alt={event.title}
+                  fill
+                  className="object-cover rounded-t-lg"
+                  sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 25vw"
+                  priority
+                />
+              </div>
+              <div className="p-1.5 md:p-4">
+                <h3 className="text-xs md:text-base font-semibold mb-0.5 md:mb-1 line-clamp-1">{event.title}</h3>
+                <p className="text-gray-600 text-[9px] md:text-xs mb-0.5 md:mb-2">{new Date(event.date).toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'short',
+                  day: 'numeric'
+                })}</p>
+                <p className="text-gray-700 text-[10px] md:text-sm line-clamp-2">{event.description}</p>
+              </div>
             </div>
-            <div className="p-1.5 md:p-4">
-              <h3 className="text-xs md:text-base font-semibold mb-0.5 md:mb-1 line-clamp-1">{event.title}</h3>
-              <p className="text-gray-600 text-[9px] md:text-xs mb-0.5 md:mb-2">{new Date(event.date).toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'short',
-                day: 'numeric'
-              })}</p>
-              <p className="text-gray-700 text-[10px] md:text-sm line-clamp-2">{event.description}</p>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
 
       <Dialog open={isOpen} onOpenChange={setIsOpen}>

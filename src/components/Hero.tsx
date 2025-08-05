@@ -5,9 +5,9 @@ import { Button } from './Button';
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden w-full">
       {/* Background Image with Overlay */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 w-full">
         <Image
           src="/hero-image.jpg"
           alt="Campus Life"
@@ -19,7 +19,7 @@ export function Hero() {
       </div>
 
       {/* Content */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container-custom relative z-10">
         <div className="text-center max-w-4xl mx-auto">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
