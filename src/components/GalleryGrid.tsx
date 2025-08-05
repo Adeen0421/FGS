@@ -31,8 +31,8 @@ export function GalleryGrid({ events, limit }: GalleryGridProps) {
             <div 
               key={event._id} 
               className="bg-white rounded shadow hover:shadow-md transition-all duration-300 cursor-pointer w-full text-left"
-            onClick={() => handleImageClick(event)}
-          >
+              onClick={() => handleImageClick(event)}
+            >
             <div className="relative aspect-[4/3] w-full">
               <Image
                 src={event.mainImage.url}

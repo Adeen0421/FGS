@@ -28,7 +28,6 @@
   h1, h2, h3, h4, h5, h6 {
     @apply font-bold tracking-tight;
   }
-
   /* Modern Heading Styles */
   h1, .h1 {
     @apply text-5xl md:text-6xl lg:text-7xl font-bold;
