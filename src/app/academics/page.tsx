@@ -298,17 +298,17 @@ export default function AcademicsPage() {
       </section>
 
       {/* Academic Support */}
-      <section className="py-20 bg-gradient-to-br from-[#1E3A8A] via-[#1E40AF] to-[#1E3A8A]">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="relative">
-              <div className="absolute -top-10 -left-10 w-20 h-20 bg-white/10 rounded-full blur-2xl"></div>
-              <div className="absolute -bottom-10 -right-10 w-20 h-20 bg-white/10 rounded-full blur-2xl"></div>
+              <div className="absolute -top-10 -left-10 w-20 h-20 bg-[#0A192F]/10 rounded-full blur-2xl"></div>
+              <div className="absolute -bottom-10 -right-10 w-20 h-20 bg-[#0A192F]/10 rounded-full blur-2xl"></div>
               <div className="relative">
-                <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-100">
+                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#0A192F]">
                   Academic Support & Enrichment
                 </h2>
-                <p className="text-xl text-blue-100 mb-8">
+                <p className="text-xl text-[#0A192F]/80 mb-8">
                   We provide comprehensive support services to ensure every student can succeed and excel.
                 </p>
                 <ul className="space-y-4">
@@ -327,27 +327,26 @@ export default function AcademicsPage() {
                       transition={{ delay: index * 0.1 }}
                       className="flex items-start group hover:translate-x-2 transition-all duration-300"
                     >
-                      <div className="h-6 w-6 rounded-full bg-gradient-to-br from-blue-300 to-white flex items-center justify-center mr-3 flex-shrink-0 mt-0.5 shadow-lg group-hover:shadow-blue-300/50 transition-all duration-300">
-                        <span className="text-[#1E3A8A] font-bold text-sm">✓</span>
+                      <div className="h-6 w-6 rounded-full bg-[#0A192F]/10 flex items-center justify-center mr-3 flex-shrink-0 mt-0.5 shadow-lg group-hover:shadow-[#0A192F]/30 transition-all duration-300">
+                        <span className="text-[#0A192F] font-bold text-sm">✓</span>
                       </div>
-                      <span className="text-blue-100 group-hover:text-white transition-colors duration-300">{item}</span>
+                      <span className="text-[#0A192F]/80 group-hover:text-[#0A192F] transition-colors duration-300">{item}</span>
                     </motion.li>
                   ))}
                 </ul>
               </div>
             </div>
             <div className="relative">
-              <div className="absolute -top-10 -right-10 w-20 h-20 bg-white/10 rounded-full blur-2xl"></div>
-              <div className="absolute -bottom-10 -left-10 w-20 h-20 bg-white/10 rounded-full blur-2xl"></div>
-              <div className="relative h-64 md:h-96 rounded-2xl overflow-hidden shadow-2xl group border border-white/10">
+              <div className="absolute -top-10 -right-10 w-20 h-20 bg-[#0A192F]/5 rounded-full blur-2xl"></div>
+              <div className="relative h-80 md:h-96 rounded-2xl overflow-hidden shadow-2xl group border border-[#0A192F]/10">
                 <Image 
-                  src="/academic-support.jpg" 
-                  alt="Academic Support" 
+                  src="/classroom.jpg" 
+                  alt="Student Learning" 
                   fill
                   className="object-cover transform group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1E3A8A]/80 via-[#1E3A8A]/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-transparent opacity-0 group-hover:opacity-60 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A192F]/80 via-[#0A192F]/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-br from-[#0A192F]/20 to-transparent opacity-0 group-hover:opacity-60 transition-opacity duration-500" />
               </div>
             </div>
           </div>

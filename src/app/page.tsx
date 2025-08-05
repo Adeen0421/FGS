@@ -1,11 +1,18 @@
 'use client'
 
-
 import { Button } from '@/components/Button'
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { FeatureCard } from '@/components/FeatureCard';
+
+const galleryImages = [
+  { src: "/gallery/art-studio.jpg", alt: "Art Studio" },
+  { src: "/gallery/auditorium.jpg", alt: "School Auditorium" },
+  { src: "/gallery/chemistry-lab.jpg", alt: "Chemistry Laboratory" },
+  { src: "/gallery/library.jpg", alt: "School Library" },
+  { src: "/gallery/music-class.jpg", alt: "Music Classroom" },
+  { src: "/gallery/SPORTS.jpg", alt: "Sports Activities" }];
 
 const stats = [
   { value: "1,200+", label: "Students", description: "Active learners" },
@@ -93,17 +100,7 @@ const coreValues = [
   },
 ]
 
-const galleryImages = [
-  { src: "/gallery/campus-1.jpg", alt: "Modern Campus Building" },
-  { src: "/gallery/library.jpg", alt: "Well-equipped Library" },
-  { src: "/gallery/lab.jpg", alt: "Science Laboratory" },
-  { src: "/gallery/sports.jpg", alt: "Sports Facilities" },
-  { src: "/gallery/classroom.jpg", alt: "Interactive Classroom" },
-  { src: "/gallery/activities.jpg", alt: "Student Activities" },
-]
-
 export default function Home() {
-
   return (
     <div className="min-h-screen bg-primary-50">
       {/* Hero Section */}
@@ -222,7 +219,7 @@ export default function Home() {
               Take a visual tour of our world-class facilities and vibrant campus life.
             </p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {galleryImages.map((image, index) => (
               <div
                 key={image.alt}
@@ -241,6 +238,43 @@ export default function Home() {
                   <p className="text-lg font-medium">{image.alt}</p>
                 </div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Core Values Section */}
+      <section className="py-24 bg-primary-50 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(59,130,246,0.1),transparent)] pointer-events-none" />
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+          <div className="absolute top-1/4 left-0 w-72 h-72 bg-primary-200/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-primary-100/10 rounded-full blur-3xl" />
+        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
+              Our Core Values
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Building the foundation for lifelong learning and success through our fundamental principles.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {coreValues.map((value, index) => (
+              <motion.div
+                key={value.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.2 }}
+                className="bg-[#0A192F] backdrop-blur-sm rounded-2xl p-8 shadow-[0_4px_20px_rgba(0,0,0,0.2)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.3)] transition-all duration-500 group hover:-translate-y-1 border border-[#1E3A8A]/30"
+              >
+                <div className="text-white mb-6 transform group-hover:scale-110 transition-all duration-500">
+                  {value.icon}
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-4">{value.title}</h3>
+                <p className="text-lg text-gray-300 leading-relaxed">{value.description}</p>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -287,43 +321,6 @@ export default function Home() {
                 icon={feature.icon}
                 index={index}
               />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Core Values Section */}
-      <section className="py-24 bg-primary-50 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(59,130,246,0.1),transparent)] pointer-events-none" />
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute top-1/4 left-0 w-72 h-72 bg-primary-200/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-primary-100/10 rounded-full blur-3xl" />
-        </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
-              Our Core Values
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Building the foundation for lifelong learning and success through our fundamental principles.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {coreValues.map((value, index) => (
-              <motion.div
-                key={value.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.2 }}
-                className="bg-[#0A192F] backdrop-blur-sm rounded-2xl p-8 shadow-[0_4px_20px_rgba(0,0,0,0.2)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.3)] transition-all duration-500 group hover:-translate-y-1 border border-[#1E3A8A]/30"
-              >
-                <div className="text-white mb-6 transform group-hover:scale-110 transition-all duration-500">
-                  {value.icon}
-                </div>
-                <h3 className="text-2xl font-bold text-white mb-4">{value.title}</h3>
-                <p className="text-lg text-gray-300 leading-relaxed">{value.description}</p>
-              </motion.div>
             ))}
           </div>
         </div>

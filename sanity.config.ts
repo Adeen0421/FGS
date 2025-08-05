@@ -1,20 +1,20 @@
 import { defineConfig } from 'sanity';
 import { deskTool } from 'sanity/desk';
 import { schema } from './sanity/schema';
+import { visionTool } from '@sanity/vision';
 
-const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '';
-const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || 'production';
-
-export default defineConfig({
-  name: 'default',
+const config = defineConfig({
+  projectId: '9b55bjgt',
+  dataset: 'production',
   title: 'School Website',
-  projectId,
-  dataset,
-  basePath: '/studio',
-  plugins: [deskTool()],
   schema,
-  stega: {
-    enabled: false,
-    studioUrl: '/studio'
-  }
-}); 
+  plugins: [deskTool(), visionTool()],
+  studio: {
+    components: {
+      navbar: undefined
+    }
+  },
+  apiVersion: '2024-03-01'
+});
+
+export default config;

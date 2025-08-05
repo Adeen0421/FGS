@@ -8,12 +8,12 @@ if (!fs.existsSync(galleryDir)) {
   fs.mkdirSync(galleryDir, { recursive: true });
 }
 
-// Additional diverse school-related images
+// Additional high-quality campus images with working URLs
 const additionalImages = [
   {
-    filename: 'books-library.jpg',
-    url: 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=800&h=600&fit=crop&crop=center',
-    alt: 'Books and Library'
+    filename: 'classroom.jpg',
+    url: 'https://images.unsplash.com/photo-1523240797355-3516d8a4c9c6?w=800&h=600&fit=crop&crop=center',
+    alt: 'Interactive Classroom'
   },
   {
     filename: 'computer-lab.jpg',
@@ -26,29 +26,9 @@ const additionalImages = [
     alt: 'Art Studio'
   },
   {
-    filename: 'music-class.jpg',
+    filename: 'activities.jpg',
     url: 'https://images.unsplash.com/photo-1523240797355-3516d8a4c9c6?w=800&h=600&fit=crop&crop=center',
-    alt: 'Music Class'
-  },
-  {
-    filename: 'sports-field.jpg',
-    url: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop&crop=center',
-    alt: 'Sports Field'
-  },
-  {
-    filename: 'chemistry-lab.jpg',
-    url: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=600&fit=crop&crop=center',
-    alt: 'Chemistry Laboratory'
-  },
-  {
-    filename: 'student-cafeteria.jpg',
-    url: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=600&fit=crop&crop=center',
-    alt: 'Student Cafeteria'
-  },
-  {
-    filename: 'study-area.jpg',
-    url: 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=800&h=600&fit=crop&crop=center',
-    alt: 'Study Area'
+    alt: 'Student Activities'
   },
   {
     filename: 'auditorium.jpg',
@@ -59,16 +39,6 @@ const additionalImages = [
     filename: 'gymnasium.jpg',
     url: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop&crop=center',
     alt: 'Gymnasium'
-  },
-  {
-    filename: 'campus-garden.jpg',
-    url: 'https://images.unsplash.com/photo-1562774053-701939374585?w=800&h=600&fit=crop&crop=center',
-    alt: 'Campus Garden'
-  },
-  {
-    filename: 'student-lounge.jpg',
-    url: 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=800&h=600&fit=crop&crop=center',
-    alt: 'Student Lounge'
   }
 ];
 
@@ -95,7 +65,7 @@ function downloadImage(url, filename) {
 }
 
 async function downloadAdditionalImages() {
-  console.log('🚀 Starting download of additional school images...\n');
+  console.log('🚀 Starting download of additional campus gallery images...\n');
   
   for (const image of additionalImages) {
     try {
@@ -105,7 +75,7 @@ async function downloadAdditionalImages() {
     }
   }
   
-  console.log('\n🎉 Additional school images download complete!');
+  console.log('\n🎉 Additional gallery images download complete!');
   console.log(`📁 Images saved to: ${galleryDir}`);
 }
 
