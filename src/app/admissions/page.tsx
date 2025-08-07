@@ -73,8 +73,8 @@ export default function Admissions() {
           />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
-          <h1 className="text-5xl font-bold mb-6">Admissions</h1>
-          <p className="text-xl max-w-2xl">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6">Admissions</h1>
+          <p className="text-base sm:text-lg md:text-xl max-w-2xl">
             Take the first step towards joining our vibrant academic community. We&apos;re excited to welcome new students who are eager to learn and grow.
           </p>
         </div>
@@ -83,7 +83,7 @@ export default function Admissions() {
       {/* Admission Process */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-[#0A192F] mb-12 text-center">
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#0A192F] mb-8 md:mb-12 text-center">
             Admission Process
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">

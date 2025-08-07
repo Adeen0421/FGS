@@ -10,22 +10,14 @@ const quickLinks = [
   { name: 'About Us', href: '/about' },
   { name: 'Academics', href: '/academics' },
   { name: 'Admissions', href: '/admissions' },
-  { name: 'Campus Life', href: '/campus-life' },
   { name: 'Contact', href: '/contact' },
 ];
 
-const resources = [
-  { name: 'Student Portal', href: '/student-portal' },
-  { name: 'Parent Portal', href: '/parent-portal' },
-  { name: 'Library', href: '/library' },
-  { name: 'Calendar', href: '/calendar' },
-  { name: 'News & Events', href: '/news' },
-];
 
 const contact = {
-  address: '123 Education Street, Academic City, ST 12345',
-  phone: '+1 (555) 123-4567',
-  email: 'info@smartacademia.edu',
+  address: 'Education District, Pakistan',
+  phone: '+92 300 123 4567',
+  email: 'info@fgs.edu.pk',
 };
 
 const socialLinks = [
@@ -43,49 +35,52 @@ export function Footer() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: '-100px' }}
-        className="container mx-auto px-4 py-16"
+        className="container mx-auto px-4 py-6"
       >
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          {/* Logo and Description */}
+        {/* Main Footer Content */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          {/* Logo and Description Section */}
           <motion.div
-            variants={fadeIn('right')}
+            variants={fadeIn('up')}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="space-y-6"
+            className="text-center lg:text-left"
           >
-            <div className="flex items-center gap-4">
+            <div className="flex flex-col items-center lg:items-start gap-2 mb-3">
               <Image
                 src="/logo-new.png"
                 alt="School Logo"
                 width={400}
                 height={130}
-                className="h-24 w-auto"
+                className="h-10 w-auto"
                 priority
               />
-              <div className="text-2xl font-semibold text-white">
+              <div className="text-base font-semibold text-white">
                 Faiz Grammar School
               </div>
             </div>
-            <p className="text-sm text-gray-400 max-w-sm">
-              Empowering minds and shaping futures through excellence in education and fostering a nurturing learning environment.
+            <p className="text-xs text-gray-400 max-w-sm mx-auto lg:mx-0">
+              Empowering minds and shaping futures through excellence in education.
             </p>
           </motion.div>
 
-          {/* Quick Links */}
+          {/* Quick Links Section */}
           <motion.div
             variants={fadeIn('up')}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
+            className="text-center lg:text-left"
           >
-            <h3 className="text-lg font-semibold text-white mb-4">Quick Links</h3>
-            <ul className="space-y-3">
+            <h3 className="text-base font-semibold text-white mb-3">Quick Links</h3>
+            <ul className="flex flex-wrap justify-center lg:justify-start gap-x-3 gap-y-1">
               {quickLinks.map((link) => (
                 <li key={link.name}>
                   <Link 
                     href={link.href}
-                    className="text-gray-400 hover:text-white transition-colors duration-200"
+                    className="text-gray-400 hover:text-white transition-colors duration-200 text-xs"
                   >
                     {link.name}
                   </Link>
@@ -94,99 +89,62 @@ export function Footer() {
             </ul>
           </motion.div>
 
-          {/* Resources */}
+          {/* Contact Section */}
           <motion.div
             variants={fadeIn('up')}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
+            className="text-center lg:text-left md:col-span-2 lg:col-span-1"
           >
-            <h3 className="text-lg font-semibold text-white mb-4">Resources</h3>
-            <ul className="space-y-3">
-              {resources.map((link) => (
-                <li key={link.name}>
-                  <Link 
-                    href={link.href}
-                    className="text-gray-400 hover:text-white transition-colors duration-200"
+            <h3 className="text-base font-semibold text-white mb-3">Contact Us</h3>
+            <div className="space-y-2">
+              <div className="flex flex-wrap justify-center lg:justify-start gap-x-3 gap-y-1 text-xs text-gray-400">
+                <p>{contact.address}</p>
+                <p>{contact.phone}</p>
+                <p>{contact.email}</p>
+              </div>
+              
+              {/* Social Links */}
+              <div className="pt-1">
+                <div className="flex justify-center lg:justify-start gap-2">
+                  <a
+                    href="https://facebook.com"
+                    className="text-gray-400 hover:text-blue-400 transition-all duration-200 hover:scale-105"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          {/* Contact Info */}
-          <motion.div
-            variants={fadeIn('left')}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            <h3 className="text-lg font-semibold text-white mb-4">Contact Us</h3>
-            <div className="space-y-3 text-sm text-gray-400">
-              <p>{contact.address}</p>
-              <p>Phone: {contact.phone}</p>
-              <p>Email: {contact.email}</p>
-            </div>
-            
-            {/* Social Links */}
-            <div className="mt-6">
-              <div className="flex space-x-6">
-                <a
-                  href="https://facebook.com"
-                  className="text-gray-400 hover:text-white transition-all hover:scale-110"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span className="sr-only">Facebook</span>
-                  <FaFacebookF className="h-6 w-6" />
-                </a>
-                <a
-                  href="https://twitter.com"
-                  className="text-gray-400 hover:text-white transition-all hover:scale-110"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span className="sr-only">Twitter</span>
-                  <FaTwitter className="h-6 w-6" />
-                </a>
-                <a
-                  href="https://instagram.com"
-                  className="text-gray-400 hover:text-white transition-all hover:scale-110"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span className="sr-only">Instagram</span>
-                  <FaInstagram className="h-6 w-6" />
-                </a>
-                <a
-                  href="https://linkedin.com"
-                  className="text-gray-400 hover:text-white transition-all hover:scale-110"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span className="sr-only">LinkedIn</span>
-                  <FaLinkedinIn className="h-6 w-6" />
-                </a>
-                <a
-                  href="https://youtube.com"
-                  className="text-gray-400 hover:text-white transition-all hover:scale-110"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span className="sr-only">YouTube</span>
-                  <FaYoutube className="h-6 w-6" />
-                </a>
-                <a
-                  href="https://wa.me/your-number"
-                  className="text-gray-400 hover:text-white transition-all hover:scale-110"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span className="sr-only">WhatsApp</span>
-                  <FaWhatsapp className="h-6 w-6" />
-                </a>
+                    <span className="sr-only">Facebook</span>
+                    <FaFacebookF className="h-4 w-4" />
+                  </a>
+                  <a
+                    href="https://instagram.com"
+                    className="text-gray-400 hover:text-pink-400 transition-all duration-200 hover:scale-105"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span className="sr-only">Instagram</span>
+                    <FaInstagram className="h-4 w-4" />
+                  </a>
+                  <a
+                    href="https://youtube.com"
+                    className="text-gray-400 hover:text-red-400 transition-all duration-200 hover:scale-105"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span className="sr-only">YouTube</span>
+                    <FaYoutube className="h-4 w-4" />
+                  </a>
+                  <a
+                    href="https://wa.me/your-number"
+                    className="text-gray-400 hover:text-green-400 transition-all duration-200 hover:scale-105"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span className="sr-only">WhatsApp</span>
+                    <FaWhatsapp className="h-4 w-4" />
+                  </a>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -198,11 +156,11 @@ export function Footer() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="mt-12 pt-8 border-t border-gray-800 text-center text-sm text-gray-400"
+          className="mt-4 pt-3 border-t border-gray-800 text-center text-xs text-gray-400"
         >
-          <p>&copy; {new Date().getFullYear()} Smart Academia. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Faiz Grammar School. All rights reserved.</p>
         </motion.div>
       </motion.div>
     </footer>
   );
-} 
+}

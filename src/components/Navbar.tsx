@@ -11,7 +11,6 @@ const navigation = [
   { name: 'About', href: '/about' },
   { name: 'Academics', href: '/academics' },
   { name: 'Admissions', href: '/admissions' },
-  { name: 'Gallery', href: '/gallery' },
   { name: 'Contact', href: '/contact' },
 ];
 

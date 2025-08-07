@@ -21,7 +21,7 @@ export function FeatureCard({ title, description, image, imageAlt, icon, index }
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="group relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-xl transition-all duration-500"
     >
-      <div className="aspect-w-16 aspect-h-9 relative overflow-hidden">
+      <div className="aspect-[16/10] md:aspect-[16/9] relative overflow-hidden">
         <Image
           src={image}
           alt={imageAlt}
@@ -36,13 +36,13 @@ export function FeatureCard({ title, description, image, imageAlt, icon, index }
         </div>
       </div>
 
-      <div className="relative p-6">
+      <div className="relative p-4 md:p-6">
         <motion.h3
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: index * 0.1 + 0.2 }}
-          className="text-title text-gray-900 mb-3"
+          className="text-lg md:text-xl font-bold text-gray-900 mb-2 md:mb-3"
         >
           {title}
         </motion.h3>
@@ -52,7 +52,7 @@ export function FeatureCard({ title, description, image, imageAlt, icon, index }
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: index * 0.1 + 0.3 }}
-          className="text-body text-gray-600"
+          className="text-sm md:text-base text-gray-600 leading-relaxed"
         >
           {description}
         </motion.p>
@@ -62,12 +62,12 @@ export function FeatureCard({ title, description, image, imageAlt, icon, index }
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: index * 0.1 + 0.4 }}
-          className="mt-4"
+          className="mt-3 md:mt-4"
         >
-          <button className="text-primary font-medium inline-flex items-center group-hover:text-primary-dark transition-colors">
+          <button className="text-blue-600 font-medium inline-flex items-center text-sm md:text-base hover:text-blue-700 transition-colors">
             Learn more
             <svg
-              className="ml-2 w-5 h-5 transform group-hover:translate-x-1 transition-transform"
+              className="ml-2 w-4 h-4 md:w-5 md:h-5 transform group-hover:translate-x-1 transition-transform"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"

@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import { Footer } from '@/components/Footer'
 import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
 import Image from 'next/image'
@@ -106,7 +105,7 @@ export default function Contact() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section with background image and overlay */}
-      <section className="relative h-[400px] flex items-center">
+      <section className="relative h-[250px] sm:h-[300px] lg:h-[400px] flex items-center">
         <div className="absolute inset-0 z-0">
           <Image
             src="/about-hero.jpg"
@@ -116,9 +115,9 @@ export default function Contact() {
             priority
           />
         </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
-          <h1 className="text-5xl font-bold mb-6">Contact Us</h1>
-          <p className="text-xl max-w-2xl">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white text-center sm:text-left">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 lg:mb-6">Contact Us</h1>
+          <p className="text-base sm:text-lg lg:text-xl max-w-2xl">
             Have questions? We&apos;d love to hear from you. Send us a message and we&apos;ll
             respond as soon as possible.
           </p>
@@ -246,8 +245,6 @@ export default function Contact() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   )
 } 

@@ -92,7 +92,7 @@ export default function AcademicsPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative h-[400px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[250px] sm:h-[300px] md:h-[400px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
             src="/classroom.jpg"
@@ -102,12 +102,12 @@ export default function AcademicsPage() {
             priority
           />
         </div>
-        <div className="relative z-10 text-center text-white">
+        <div className="relative z-10 text-center text-white px-4">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-5xl md:text-6xl font-bold mb-6"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6"
           >
             Academics
           </motion.h1>
@@ -115,7 +115,7 @@ export default function AcademicsPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.5 }}
-            className="text-xl text-white/90 max-w-3xl mx-auto px-4"
+            className="text-base sm:text-lg md:text-xl text-white/90 max-w-3xl mx-auto"
           >
             Discover our comprehensive curriculum and innovative teaching approaches designed to inspire and challenge students at every level.
           </motion.p>
@@ -123,18 +123,18 @@ export default function AcademicsPage() {
       </section>
 
       {/* Curriculum Overview */}
-      <section className="py-20">
+      <section className="py-10 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#0A192F] mb-4">
+          <div className="text-center mb-8 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#0A192F] mb-3 md:mb-4">
               Curriculum Overview
             </h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
               Our curriculum is designed to provide a balanced and challenging education that prepares students for success in college and beyond.
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {[
               {
                 icon: BookMarked,
@@ -173,26 +173,26 @@ export default function AcademicsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white p-8 rounded-2xl shadow-lg border-2 border-[#0A192F]/20 hover:border-[#0A192F] hover:bg-[#0A192F]/95 group transition-all duration-500 hover:shadow-2xl"
+                className="bg-white p-6 md:p-8 rounded-2xl shadow-lg border-2 border-[#0A192F]/20 hover:border-[#0A192F] hover:bg-[#0A192F]/95 group transition-all duration-500 hover:shadow-2xl"
               >
-                <div className="h-14 w-14 bg-[#0A192F]/5 group-hover:bg-white/10 rounded-full flex items-center justify-center mb-6 transition-colors duration-500">
-                  <level.icon className="h-7 w-7 text-[#0A192F] group-hover:text-white transition-colors duration-500" />
+                <div className="h-12 w-12 md:h-14 md:w-14 bg-[#0A192F]/5 group-hover:bg-white/10 rounded-full flex items-center justify-center mb-4 md:mb-6 transition-colors duration-500">
+                  <level.icon className="h-6 w-6 md:h-7 md:w-7 text-[#0A192F] group-hover:text-white transition-colors duration-500" />
                 </div>
-                <h3 className="text-2xl font-bold text-[#0A192F] group-hover:text-white transition-colors duration-500 mb-4">
+                <h3 className="text-xl md:text-2xl font-bold text-[#0A192F] group-hover:text-white transition-colors duration-500 mb-3 md:mb-4">
                   {level.title}
                 </h3>
-                <p className="text-gray-700 group-hover:text-white/90 transition-colors duration-500 mb-6">
+                <p className="text-sm md:text-base text-gray-700 group-hover:text-white/90 transition-colors duration-500 mb-4 md:mb-6">
                   {level.description}
                 </p>
-                <ul className="space-y-3">
+                <ul className="space-y-2 md:space-y-3">
                   {level.levels.map((item) => (
                     <li key={item.grade} className="flex items-start">
-                      <div className="h-6 w-6 rounded-full bg-[#0A192F]/10 group-hover:bg-white/10 flex items-center justify-center mr-3 flex-shrink-0 mt-0.5 transition-colors duration-500">
-                        <span className="text-[#0A192F] group-hover:text-white font-medium text-sm transition-colors duration-500">
+                      <div className="h-5 w-5 md:h-6 md:w-6 rounded-full bg-[#0A192F]/10 group-hover:bg-white/10 flex items-center justify-center mr-2 md:mr-3 flex-shrink-0 mt-0.5 transition-colors duration-500">
+                        <span className="text-[#0A192F] group-hover:text-white font-medium text-xs md:text-sm transition-colors duration-500">
                           {item.grade}
                         </span>
                       </div>
-                      <span className="text-gray-700 group-hover:text-white/90 transition-colors duration-500">
+                      <span className="text-xs md:text-sm text-gray-700 group-hover:text-white/90 transition-colors duration-500">
                         {item.text}
                       </span>
                     </li>
@@ -205,13 +205,13 @@ export default function AcademicsPage() {
       </section>
 
       {/* Key Subjects Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-10 md:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#0A192F] mb-4">
+          <div className="text-center mb-8 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#0A192F] mb-3 md:mb-4">
               Key Subject Areas
             </h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
               Our comprehensive curriculum covers all essential subject areas with depth and rigor
             </p>
           </div>
@@ -221,23 +221,23 @@ export default function AcademicsPage() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+            className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6"
           >
             {subjects.map((subject) => (
               <motion.div
                 key={subject.name}
                 variants={item}
-                className="bg-white p-6 rounded-xl shadow-lg border-2 border-[#0A192F]/20 hover:border-[#0A192F] hover:bg-[#0A192F]/95 group transition-all duration-500 hover:shadow-2xl"
+                className="bg-white p-4 md:p-6 rounded-xl shadow-lg border-2 border-[#0A192F]/20 hover:border-[#0A192F] hover:bg-[#0A192F]/95 group transition-all duration-500 hover:shadow-2xl"
               >
-                <div className="flex items-center mb-4">
-                  <div className="h-10 w-10 rounded-full bg-[#0A192F]/5 group-hover:bg-white/10 flex items-center justify-center mr-3 transition-colors duration-500">
-                    <subject.icon className="h-5 w-5 text-[#0A192F] group-hover:text-white transition-colors duration-500" />
+                <div className="flex items-center mb-3 md:mb-4">
+                  <div className="h-8 w-8 md:h-10 md:w-10 rounded-full bg-[#0A192F]/5 group-hover:bg-white/10 flex items-center justify-center mr-2 md:mr-3 transition-colors duration-500">
+                    <subject.icon className="h-4 w-4 md:h-5 md:w-5 text-[#0A192F] group-hover:text-white transition-colors duration-500" />
                   </div>
-                  <h3 className="text-lg font-semibold text-[#0A192F] group-hover:text-white transition-colors duration-500">
+                  <h3 className="text-base md:text-lg font-semibold text-[#0A192F] group-hover:text-white transition-colors duration-500">
                     {subject.name}
                   </h3>
                 </div>
-                <p className="text-gray-700 text-sm group-hover:text-white/90 transition-colors duration-500">
+                <p className="text-gray-700 text-xs md:text-sm group-hover:text-white/90 transition-colors duration-500">
                   {subject.description}
                 </p>
               </motion.div>
@@ -247,18 +247,18 @@ export default function AcademicsPage() {
       </section>
 
       {/* Teaching Methods */}
-      <section className="py-20">
+      <section className="py-10 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#0A192F] mb-4">
+          <div className="text-center mb-8 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#0A192F] mb-3 md:mb-4">
               Our Teaching Approach
             </h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
               Innovative methodologies that engage students and promote deeper understanding
             </p>
           </div>
 
-          <div className="space-y-16">
+          <div className="grid grid-cols-2 gap-3 md:gap-6">
             {teachingMethods.map((method, index) => (
               <motion.div 
                 key={method.title}
@@ -266,32 +266,23 @@ export default function AcademicsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7 }}
-                className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center group/section"
+                className="bg-white p-3 md:p-4 rounded-xl border-2 border-[#0A192F]/20 hover:border-[#0A192F] hover:bg-[#0A192F]/95 group transition-all duration-500 hover:shadow-lg"
               >
-                <div className={index % 2 === 1 ? "md:order-last" : ""}>
-                  <div className="relative h-80 md:h-96 rounded-2xl overflow-hidden shadow-xl group/image">
-                    <Image 
-                      src={method.image} 
-                      alt={method.title} 
-                      fill
-                      className="object-cover transform group-hover/image:scale-110 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-[#0A192F]/5 group-hover/image:bg-[#0A192F]/20 transition-colors duration-500" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A192F]/80 via-transparent to-transparent opacity-0 group-hover/image:opacity-100 transition-opacity duration-500" />
-                    <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover/image:translate-y-0 transition-transform duration-500">
-                      <h4 className="text-lg font-semibold mb-2">{method.title}</h4>
-                      <p className="text-sm text-white/90">{method.description}</p>
-                    </div>
-                  </div>
+                <div className="relative h-32 md:h-40 rounded-lg overflow-hidden shadow-md group/image mb-3">
+                  <Image 
+                    src={method.image} 
+                    alt={method.title} 
+                    fill
+                    className="object-cover transform group-hover/image:scale-110 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-[#0A192F]/5 group-hover/image:bg-[#0A192F]/20 transition-colors duration-500" />
                 </div>
-                <div className="bg-white p-8 rounded-2xl border-2 border-[#0A192F]/20 hover:border-[#0A192F] hover:bg-[#0A192F]/95 group transition-all duration-500 hover:shadow-2xl">
-                  <h3 className="text-2xl font-bold text-[#0A192F] group-hover:text-white transition-colors duration-500 mb-4">
-                    {method.title}
-                  </h3>
-                  <p className="text-gray-700 group-hover:text-white/90 transition-colors duration-500">
-                    {method.description}
-                  </p>
-                </div>
+                <h3 className="text-sm md:text-base font-bold text-[#0A192F] group-hover:text-white transition-colors duration-500 mb-2">
+                  {method.title}
+                </h3>
+                <p className="text-xs md:text-sm text-gray-700 group-hover:text-white/90 transition-colors duration-500 leading-tight">
+                  {method.description}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -299,17 +290,17 @@ export default function AcademicsPage() {
       </section>
 
       {/* Academic Support */}
-      <section className="py-20 bg-white">
+      <section className="py-10 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
             <div className="relative">
               <div className="absolute -top-10 -left-10 w-20 h-20 bg-[#0A192F]/10 rounded-full blur-2xl"></div>
               <div className="absolute -bottom-10 -right-10 w-20 h-20 bg-[#0A192F]/10 rounded-full blur-2xl"></div>
               <div className="relative">
-                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#0A192F]">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 md:mb-6 text-[#0A192F]">
                   Academic Support & Enrichment
                 </h2>
-                <p className="text-xl text-[#0A192F]/80 mb-8">
+                <p className="text-base sm:text-lg md:text-xl text-[#0A192F]/80 mb-6 md:mb-8">
                   We provide comprehensive support services to ensure every student can succeed and excel.
                 </p>
                 <ul className="space-y-4">
@@ -337,7 +328,7 @@ export default function AcademicsPage() {
                 </ul>
               </div>
             </div>
-            <div className="relative">
+            <div className="relative hidden md:block">
               <div className="absolute -top-10 -right-10 w-20 h-20 bg-[#0A192F]/5 rounded-full blur-2xl"></div>
               <div className="relative h-80 md:h-96 rounded-2xl overflow-hidden shadow-2xl group border border-[#0A192F]/10">
                 <Image 
