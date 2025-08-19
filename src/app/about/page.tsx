@@ -1,6 +1,5 @@
 'use client'
 
-import { Footer } from '@/components/Footer'
 import { Card } from '@/components/Card'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
@@ -87,6 +86,46 @@ export default function About() {
         </div>
       </section>
 
+      {/* Principal's Message Section */}
+      <section className="py-8 md:py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="relative h-[300px] sm:h-[350px] md:h-[400px] rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-all duration-500"
+            >
+              <Image
+                src="/placeholder.jpg"
+                alt="Muhammad Imran Khan - Principal"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-[#0A192F]/10 hover:bg-[#0A192F]/20 transition-colors duration-500" />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="bg-white p-6 md:p-8 rounded-2xl border-2 border-[#0A192F] hover:bg-[#0A192F] hover:border-transparent transition-all duration-500 group"
+            >
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0A192F] group-hover:text-white transition-colors duration-500 mb-4 md:mb-6">Principal's Message</h2>
+              <div className="mb-4">
+                <h3 className="text-xl md:text-2xl font-semibold text-[#0A192F] group-hover:text-white transition-colors duration-500">Muhammad Imran Khan</h3>
+                <p className="text-sm md:text-base text-gray-600 group-hover:text-white/80 transition-colors duration-500 italic">Principal, Faiz Grammar School</p>
+              </div>
+              <p className="text-sm md:text-base text-gray-700 group-hover:text-white/90 transition-colors duration-500 mb-4 md:mb-6">
+                Welcome to Faiz Grammar School, where we believe in nurturing young minds to become tomorrow's leaders. Our commitment to academic excellence, character building, and holistic development has been the cornerstone of our educational philosophy for over two decades.
+              </p>
+              <p className="text-sm md:text-base text-gray-700 group-hover:text-white/90 transition-colors duration-500">
+                We strive to create an environment where every student can discover their potential, develop their talents, and prepare for a successful future. Together, we build not just academic achievers, but responsible citizens who will contribute positively to society.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* History Section */}
       <section className="py-8 md:py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -158,7 +197,6 @@ export default function About() {
         </div>
       </section>
 
-      <Footer />
     </div>
   )
 }

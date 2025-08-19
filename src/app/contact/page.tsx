@@ -10,7 +10,7 @@ import React from 'react'
 const contactInfo = [
   {
     title: 'Address',
-    content: '123 Education Street, Knowledge City, KN 12345',
+    content: '3g 8/16 Nazimabad no 3 Karachi, Karachi, Sindh 74600',
     icon: (
       <svg
         className="h-6 w-6 text-primary"
@@ -35,7 +35,7 @@ const contactInfo = [
   },
   {
     title: 'Phone',
-    content: '(123) 456-7890',
+    content: '03211430155',
     icon: (
       <svg
         className="h-6 w-6 text-primary"
@@ -54,7 +54,7 @@ const contactInfo = [
   },
   {
     title: 'Email',
-    content: 'info@smartacademia.edu',
+    content: 'fgsimran@gmail.com',
     icon: (
       <svg
         className="h-6 w-6 text-primary"

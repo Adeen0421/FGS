@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import { Footer } from '@/components/Footer'
 import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
 
@@ -232,7 +231,6 @@ export default function Admissions() {
         </div>
       </section>
 
-      <Footer />
     </div>
   )
 }

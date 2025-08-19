@@ -15,9 +15,9 @@ const quickLinks = [
 
 
 const contact = {
-  address: 'Education District, Pakistan',
-  phone: '+92 300 123 4567',
-  email: 'info@fgs.edu.pk',
+  address: '3g 8/16 Nazimabad no 3 Karachi, Karachi, Sindh 74600',
+  phone: '03211430155',
+  email: 'fgsimran@gmail.com',
 };
 
 const socialLinks = [
@@ -48,16 +48,16 @@ export function Footer() {
             viewport={{ once: true }}
             className="text-center lg:text-left"
           >
-            <div className="flex flex-col items-center lg:items-start gap-2 mb-3">
+            <div className="flex flex-col lg:flex-row items-center lg:items-center gap-3 mb-3">
               <Image
                 src="/logo-new.png"
                 alt="School Logo"
                 width={400}
                 height={130}
-                className="h-10 w-auto"
+                className="h-12 lg:h-16 w-auto"
                 priority
               />
-              <div className="text-base font-semibold text-white">
+              <div className="text-base lg:text-xl font-semibold text-white">
                 Faiz Grammar School
               </div>
             </div>
@@ -109,7 +109,7 @@ export function Footer() {
               <div className="pt-1">
                 <div className="flex justify-center lg:justify-start gap-2">
                   <a
-                    href="https://facebook.com"
+                    href="https://www.facebook.com/people/Faiz-Grammer-School/100067013864103"
                     className="text-gray-400 hover:text-blue-400 transition-all duration-200 hover:scale-105"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -118,7 +118,7 @@ export function Footer() {
                     <FaFacebookF className="h-4 w-4" />
                   </a>
                   <a
-                    href="https://instagram.com"
+                    href="https://www.instagram.com/faizgrammarschool"
                     className="text-gray-400 hover:text-pink-400 transition-all duration-200 hover:scale-105"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -127,16 +127,7 @@ export function Footer() {
                     <FaInstagram className="h-4 w-4" />
                   </a>
                   <a
-                    href="https://youtube.com"
-                    className="text-gray-400 hover:text-red-400 transition-all duration-200 hover:scale-105"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <span className="sr-only">YouTube</span>
-                    <FaYoutube className="h-4 w-4" />
-                  </a>
-                  <a
-                    href="https://wa.me/your-number"
+                    href="https://wa.me/923211430155"
                     className="text-gray-400 hover:text-green-400 transition-all duration-200 hover:scale-105"
                     target="_blank"
                     rel="noopener noreferrer"
