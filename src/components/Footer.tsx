@@ -38,7 +38,7 @@ export function Footer() {
         className="container mx-auto px-4 py-6"
       >
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           
           {/* Logo and Description Section */}
           <motion.div
@@ -86,6 +86,27 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
+            </ul>
+          </motion.div>
+
+          {/* Policy Links Section */}
+          <motion.div
+            variants={fadeIn('up')}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="text-center lg:text-left"
+          >
+            <h3 className="text-base font-semibold text-white mb-3">Legal & Policies</h3>
+            <ul className="flex flex-wrap justify-center lg:justify-start gap-x-3 gap-y-1">
+                <li>
+                  <Link 
+                    href="/policies"
+                    className="text-gray-400 hover:text-white transition-colors duration-200 text-xs"
+                  >
+                    View All Policies
+                  </Link>
+                </li>
             </ul>
           </motion.div>
 
